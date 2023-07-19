@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{anyfontsize}
+\usepackage{graphicx}
+
+%package for list formatting (ordered) if we add [a.]
+\usepackage{enumerate}
+%package for graphics or include images
+\usepackage{graphicx}
+\usepackage{float} %to place image forcefully there
+
+\usepackage{subcaption,caption}
+\usepackage[hidelinks]{hyperref}
+
+%for times new roman font
+\usepackage{times,mathptmx}
+
+
+%package for margins
+\usepackage[outer=1.25in,inner=1.5in,top=1in,bottom=1in,headheight=0.5in,footskip=0.5in]{geometry}
+%better to use outer and inner beacause while printing book then right and left margin will not be good , So, inner margin 
+
+
+\begin{document}
+	\pagenumbering{roman}
+	
+	\input{coverpage}
+	
+  	
+  	
+  	\input{sec/acknowledgement}
+  
+  	
+  	%\newpage
+  	%{
+  	%	\setlength{\parskip}{0em}
+  	%	\renewcommand\contentsname{TABLE OF CONTENTS}\\[0.5cm] % This will change heading text
+  	%	\tableofcontents 
+  	   % \addcontentsline{toc}{section}{TABLE OF CONTENTS}
+  	%}
+  	
+  	
+  	
+  	
+  	\input{sec/introduction}
+  	\input{sec/objectives}
+  	\input{sec/proposed}
+  	\input{sec/methodology}
+  	\input{sec/projectScope}
+  	\input{sec/projectSchedule}
+  	
+  	
+  	
+  	
+  	
+  
+  
+  
+  
+	
+\end{document}
+
+
