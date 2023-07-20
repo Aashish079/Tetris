@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.7)  19 JUL 2023 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.7)  20 JUL 2023 08:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -387,7 +387,7 @@ Package hyperref Info: Link coloring OFF on input line 24.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (./coverpage.tex
-<images/tu.jpg, id=44, 301.125pt x 313.17pt>
+<images/tu.jpg, id=36, 301.125pt x 313.17pt>
 File: images/tu.jpg Graphic file (type jpg)
 <use images/tu.jpg>
 Package pdftex.def Info: images/tu.jpg  used on input line 7.
@@ -396,13 +396,64 @@ Package pdftex.def Info: images/tu.jpg  used on input line 7.
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./images/tu.jpg>]) (./
-sec/acknowledgement.tex) (./sec/introduction.tex
+sec/acknowledgement.tex)
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \newpage
-             [1]
+l.34   	\newpage
+                 [1]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 ...d\contentsname{TABLE OF CONTENTS}\\[0.5cm]
+                                                   % This will change headin...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./PROPOSAL.toc
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
+ 5.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
+ 5.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
+ 5.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
+ 5.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+)
+\tf@toc=\write4
+\openout4 = `PROPOSAL.toc'.
+
+
+(./sec/introduction.tex [2]
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
@@ -448,40 +499,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--28
+Underfull \hbox (badness 10000) in paragraph at lines 22--27
 
  []
 
-) (./sec/objectives.tex [1]) (./sec/proposed.tex [2]
-Underfull \hbox (badness 10000) in paragraph at lines 6--8
+) (./sec/objectives.tex [1]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
+.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+))
+(./sec/proposed.tex [2]
+<images/flowchart.jpg, id=76, 837.1275pt x 1284.8pt>
+File: images/flowchart.jpg Graphic file (type jpg)
+<use images/flowchart.jpg>
+Package pdftex.def Info: images/flowchart.jpg  used on input line 8.
+(pdftex.def)             Requested size: 398.76538pt x 612.01154pt.
+) (./sec/methodology.tex [3 <./images/flowchart.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[3]) (./sec/methodology.tex [4]) (./sec/projectScope.tex [5])
-(./sec/projectSchedule.tex [6]
-<images/Gantt.png, id=80, 1405.25pt x 1204.5pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+) (./sec/projectScope.tex) (./sec/projectSchedule.tex [4]
+<images/Gantt.png, id=87, 1405.25pt x 1204.5pt>
 File: images/Gantt.png Graphic file (type png)
 <use images/Gantt.png>
 Package pdftex.def Info: images/Gantt.png  used on input line 6.
 (pdftex.def)             Requested size: 398.76538pt x 341.79736pt.
-) [7 <./images/Gantt.png>] (./PROPOSAL.aux)
+) [5 <./images/Gantt.png>] (./PROPOSAL.aux)
 Package rerunfilecheck Info: File `PROPOSAL.out' has not changed.
-(rerunfilecheck)             Checksum: 9DB416FB8B3EB875BDC1D2863CD8817A;1164.
+(rerunfilecheck)             Checksum: 324241167B13BCA16CCF31370C35C2ED;934.
  ) 
 Here is how much of TeX's memory you used:
- 10352 strings out of 476025
- 171282 string characters out of 5790018
- 1857388 words of memory out of 5000000
- 30650 multiletter control sequences out of 15000+600000
- 524198 words of font info for 48 fonts, out of 8000000 for 9000
+ 10454 strings out of 476025
+ 173077 string characters out of 5790018
+ 1858388 words of memory out of 5000000
+ 30720 multiletter control sequences out of 15000+600000
+ 532123 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,77p,520b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,77p,780b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/lo
 cal/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on PROPOSAL.pdf (9 pages, 184397 bytes).
+Output written on PROPOSAL.pdf (8 pages, 282136 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 115 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
+ 80 words of extra memory for PDF output out of 10000 (max. 10000000)
 
