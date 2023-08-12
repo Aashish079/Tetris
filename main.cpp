@@ -1,6 +1,5 @@
-#include <iostream>
+#include "game.hpp"
 
-int main() {
-    std::cout << "Tetris on the way!!" << std::endl;
-    return 0;
+int main(int argc, char** argv) {
+    ttt::Game(1366, 768, "SFML Starter");
 }
