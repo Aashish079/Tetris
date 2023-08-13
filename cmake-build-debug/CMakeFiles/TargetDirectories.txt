@@ -1,0 +1,3 @@
+/home/anup/CLionProjects/TETRIS/cmake-build-debug/CMakeFiles/sfml_test.dir
+/home/anup/CLionProjects/TETRIS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/anup/CLionProjects/TETRIS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
