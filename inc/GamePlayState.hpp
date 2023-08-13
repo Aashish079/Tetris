@@ -4,7 +4,7 @@
 #include "state.hpp"
 #include "game.hpp"
 
-namespace ttt
+namespace tetris
 {
     class GamePlayState: public State
     {

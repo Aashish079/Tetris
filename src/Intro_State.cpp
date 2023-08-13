@@ -1,13 +1,13 @@
 //
 // Created by anup on 8/11/23.
 //
-#include<sstream>
+#include <sstream>
 #include "Intro_State.hpp"
 #include "MainMenuState.hpp"
 #include "GamePlayState.hpp"
-namespace ttt
+namespace tetris
 {
-    IntroState::IntroState(ttt::GameDataRef data) : _data(data) {}
+    IntroState::IntroState(tetris::GameDataRef data) : _data(data) {}
 
     void IntroState::init()
     {
@@ -24,32 +24,26 @@ namespace ttt
             if (sf::Event::Closed == evt.type)
             {
                 _data->window.close();
-
-
-             }
-         }
+            }
+        }
     }
 
+    void IntroState::update(float dt)
+    {
+        if (_clock.getElapsedTime().asSeconds() > 2)
+        {
+            // Switch To Main Menu
+            _data->machine.addState(StateRef(new MainMenuState(_data)), true);
+            //             _data->machine.addState(StateRef(new GamePlayState(_data)), true);
+        }
+    }
+    void IntroState::render(float dt)
+    {
 
+        _data->window.clear(sf::Color::Red);
+        _data->window.draw(_sprite);
+        //         _data->window.draw(_text);
 
-     void IntroState::update(float dt)
-     {
-         if (_clock.getElapsedTime().asSeconds() > 2)
-         {
-             // Switch To Main Menu
-             _data->machine.addState(StateRef(new MainMenuState(_data)), true);
-//             _data->machine.addState(StateRef(new GamePlayState(_data)), true);
-         }
-
-
-     }
-     void IntroState::render(float dt)
-     {
-
-         _data->window.clear(sf::Color::Red);
-         _data->window.draw(_sprite);
-//         _data->window.draw(_text);
-
-         _data->window.display();
-     }
+        _data->window.display();
+    }
 }

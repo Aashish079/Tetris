@@ -1,12 +1,12 @@
 #include "GamePlayState.hpp"
 #include <iostream>
 
-namespace ttt{
-    GamePlayState::GamePlayState(ttt::GameDataRef data) : _data(data){}
+namespace tetris{
+    GamePlayState::GamePlayState(tetris::GameDataRef data) : _data(data){}
 
    void  GamePlayState::init()
     {
-        _data->assets.loadTexture("ColorBox", "/home/anup/CLionProjects/Tetris/rec/ColorBox.png");
+        _data->assets.loadTexture("ColorBox", "../rec/ColorBox.png");
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
 
     }
@@ -43,7 +43,7 @@ namespace ttt{
 
                  _data->window.draw(cell);
                  _sprite_for_ColorBox.setPosition(((i+15) * 31),((j+1) * 31) );
-//                 _data->window.draw(_sprite_for_ColorBox);
+                 _data->window.draw(_sprite_for_ColorBox);
              }
          }
 

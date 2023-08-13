@@ -6,27 +6,29 @@
 
 #include "state.hpp"
 
-namespace ttt {
+namespace tetris
+{
     typedef std::unique_ptr<State> StateRef;
 
-    class StateMachine {
-        public:
-            StateMachine() { }
-            ~StateMachine() { }
+    class StateMachine
+    {
+    public:
+        StateMachine() {}
+        ~StateMachine() {}
 
-            void addState(StateRef newState, bool isReplacing = true);
-            void removeState();
-            // Run at start of each loop in Game.cpp
-            void processStateChanges();
+        void addState(StateRef newState, bool isReplacing = true);
+        void removeState();
+        // Run at start of each loop in Game.cpp
+        void processStateChanges();
 
-            StateRef& getActiveState();
+        StateRef &getActiveState();
 
-        private:
-            std::stack<StateRef> _states;
-            StateRef _newState;
+    private:
+        std::stack<StateRef> _states;
+        StateRef _newState;
 
-            bool _isRemoving;
-            bool _isAdding, _isReplacing;
+        bool _isRemoving;
+        bool _isAdding, _isReplacing;
     };
 }
 

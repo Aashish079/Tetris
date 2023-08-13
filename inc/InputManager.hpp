@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace ttt
+namespace tetris
 {
     class InputManager
     {

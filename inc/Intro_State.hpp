@@ -2,16 +2,16 @@
 #ifndef SFML_TEST_INTRO_STATE_HPP
 #define SFML_TEST_INTRO_STATE_HPP
 
-#include<SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "state.hpp"
 #include "game.hpp"
 
-namespace ttt
+namespace tetris
 {
-    class IntroState: public State
+    class IntroState : public State
     {
     public:
-        IntroState (GameDataRef data);
+        IntroState(GameDataRef data);
         void init();
 
         void handleInput();
@@ -24,8 +24,7 @@ namespace ttt
         sf::Sprite _sprite;
         sf::Text _text;
         sf::Clock _clock;
-
     };
 }
 
-#endif //SFML_TEST_INTRO_STATE_HPP
+#endif // SFML_TEST_INTRO_STATE_HPP

@@ -1,8 +1,10 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
-namespace ttt {
-    class State {
+namespace tetris
+{
+    class State
+    {
     public:
         virtual void init() = 0;
 
@@ -10,8 +12,8 @@ namespace ttt {
         virtual void update(float dt) = 0;
         virtual void render(float dt) = 0;
 
-        virtual void pause() { }
-        virtual void resume() { }
+        virtual void pause() {}
+        virtual void resume() {}
     };
 }
 

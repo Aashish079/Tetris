@@ -1,32 +1,43 @@
 #include "state_machine.hpp"
 
-namespace ttt {
-    void StateMachine::addState(StateRef newState, bool isReplacing) {
+namespace tetris
+{
+    void StateMachine::addState(StateRef newState, bool isReplacing)
+    {
         _isAdding = true;
         _isReplacing = isReplacing;
 
         _newState = std::move(newState);
     }
 
-    void StateMachine::removeState() {
+    void StateMachine::removeState()
+    {
         _isRemoving = true;
     }
 
-    void StateMachine::processStateChanges() {
-        if (_isRemoving && !_states.empty()) {
+    void StateMachine::processStateChanges()
+    {
+        if (_isRemoving && !_states.empty())
+        {
             _states.pop();
 
-            if (!_states.empty()) {
+            if (!_states.empty())
+            {
                 _states.top()->resume();
             }
             _isRemoving = false;
         }
 
-        if (_isAdding) {
-            if (!_states.empty()) {
-                if (_isReplacing) {
+        if (_isAdding)
+        {
+            if (!_states.empty())
+            {
+                if (_isReplacing)
+                {
                     _states.pop();
-                } else {
+                }
+                else
+                {
                     _states.top()->pause();
                 }
             }
@@ -37,7 +48,8 @@ namespace ttt {
         }
     }
 
-    StateRef& StateMachine::getActiveState() {
+    StateRef &StateMachine::getActiveState()
+    {
         return _states.top();
     }
 }

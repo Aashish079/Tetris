@@ -10,8 +10,10 @@
 
 #define DEBUG
 
-namespace ttt {
-    struct GameData {
+namespace tetris
+{
+    struct GameData
+    {
         StateMachine machine;
         sf::RenderWindow window;
         AssetManager assets;
@@ -23,26 +25,27 @@ namespace ttt {
 
     typedef std::shared_ptr<GameData> GameDataRef;
 
-    class Game {
-        public:
-            Game(int width, int height, std::string title);
+    class Game
+    {
+    public:
+        Game(int width, int height, std::string title);
 
-        private:
-            // Updates run at 30 per second.
-            const float dt = 1.0f / 30.0f;
-            sf::Clock _clock;
+    private:
+        // Updates run at 30 per second.
+        const float dt = 1.0f / 30.0f;
+        sf::Clock _clock;
 #ifdef DEBUG
-            sf::Clock _upsClock;
-            sf::Clock _fpsClock;
-            int _updates;
-            int _frames;
+        sf::Clock _upsClock;
+        sf::Clock _fpsClock;
+        int _updates;
+        int _frames;
 
-            void calculateUpdatesPerSecond();
-            void calculateFramesPerSecond();
+        void calculateUpdatesPerSecond();
+        void calculateFramesPerSecond();
 #endif
-            GameDataRef _data = std::make_shared<GameData>();
+        GameDataRef _data = std::make_shared<GameData>();
 
-            void run();
+        void run();
     };
 }
 
