@@ -4,19 +4,25 @@
 #include<sstream>
 #include "Intro_State.hpp"
 #include "MainMenuState.hpp"
-namespace ttt {
+#include "GamePlayState.hpp"
+namespace ttt
+{
     IntroState::IntroState(ttt::GameDataRef data) : _data(data) {}
 
-    void IntroState::init() {
-        _data->assets.loadTexture("IntroPage", "/home/anup/CLionProjects/sfml-test/rec/IntroPage.jpg");
+    void IntroState::init()
+    {
+        _data->assets.loadTexture("IntroPage", "../rec/IntroPage.jpg");
 
         _sprite.setTexture(_data->assets.getTexture("IntroPage"));
     }
 
-    void IntroState::handleInput() {
+    void IntroState::handleInput()
+    {
         sf::Event evt;
-        while (_data->window.pollEvent(evt)) {
-            if (sf::Event::Closed == evt.type) {
+        while (_data->window.pollEvent(evt))
+        {
+            if (sf::Event::Closed == evt.type)
+            {
                 _data->window.close();
 
 
@@ -26,16 +32,19 @@ namespace ttt {
 
 
 
-     void IntroState::update(float dt) {
-         if (_clock.getElapsedTime().asSeconds() > 3)
+     void IntroState::update(float dt)
+     {
+         if (_clock.getElapsedTime().asSeconds() > 2)
          {
              // Switch To Main Menu
              _data->machine.addState(StateRef(new MainMenuState(_data)), true);
+//             _data->machine.addState(StateRef(new GamePlayState(_data)), true);
          }
 
 
      }
-     void IntroState::render(float dt) {
+     void IntroState::render(float dt)
+     {
 
          _data->window.clear(sf::Color::Red);
          _data->window.draw(_sprite);

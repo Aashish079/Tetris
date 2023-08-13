@@ -11,6 +11,10 @@ set(SOURCE_FILES
         src/Intro_State.cpp
         inc/MainMenuState.hpp
         src/MainMenuState.cpp
+        inc/GamePlayState.hpp
+        src/GamePlayState.cpp
+        inc/InputManager.hpp
+        src/InputManager.cpp
 
 )
 add_executable(sfml_test ${SOURCE_FILES})

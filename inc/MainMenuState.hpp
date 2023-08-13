@@ -24,7 +24,7 @@ namespace ttt
     private:
         GameDataRef _data;
 
-        sf::Sprite _sprite;
+        sf::Sprite _sprite_for_PlayButton ,_sprite_for_HighScoreButton, _sprite_for_ExitButton;
         sf::Text _text;
         sf::Clock _clock;
         bool isHovered = false;

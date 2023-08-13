@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "state_machine.hpp"
 #include "asset_manager.hpp"
+#include "InputManager.hpp"
 
 #define DEBUG
 
@@ -14,6 +15,7 @@ namespace ttt {
         StateMachine machine;
         sf::RenderWindow window;
         AssetManager assets;
+        InputManager input;
 #ifdef DEBUG
         int FPS, UPS;
 #endif
