@@ -9,6 +9,7 @@ namespace tetris{
         _data->assets.loadTexture("ColorBox", "../rec/ColorBox.png");
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
 
+
     }
 
     void  GamePlayState:: handleInput()
@@ -21,6 +22,25 @@ namespace tetris{
                  _data->window.close();
 
 
+             }
+             if (evt.type == sf::Event::KeyPressed)
+             {
+                 if (evt.key.code == sf::Keyboard::Left)
+                 {
+                    x_postion_of_tetromino--;
+                 }
+                 if (evt.key.code == sf::Keyboard::Right)
+                 {
+                     x_postion_of_tetromino++;
+                 }
+                 if (evt.key.code == sf::Keyboard::Up)
+                 {
+                     y_postion_of_tetromino--;
+                 }
+                 if (evt.key.code == sf::Keyboard::Down)
+                 {
+                     y_postion_of_tetromino++;
+                 }
              }
          }
      }
@@ -38,13 +58,18 @@ namespace tetris{
          {
              for(int j=0;j<20;j++)
              {
-                 cell.setPosition(((i+15) * 31) , ((j+1) * 31) );
-                 _sprite_for_ColorBox.setTextureRect(sf::IntRect (30 *(j%7),0,30,30));
+                 cell.setPosition(((i+17) * 31) , ((j+1) * 31) );
 
                  _data->window.draw(cell);
-                 _sprite_for_ColorBox.setPosition(((i+15) * 31),((j+1) * 31) );
-                 _data->window.draw(_sprite_for_ColorBox);
+
              }
+         }
+
+         for(int k =0 ; k<4;k++)
+         {
+             _sprite_for_ColorBox.setTextureRect(sf::IntRect (30 *(0),0,30,30));
+             _sprite_for_ColorBox.setPosition(((x_postion_of_tetromino) * 31)+(ShapeMatrix[0][k]%2)*31,((y_postion_of_tetromino) * 31)+(ShapeMatrix[0][k]/2)*31 );
+             _data->window.draw(_sprite_for_ColorBox);
          }
 
 
