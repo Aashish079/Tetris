@@ -3,6 +3,7 @@
 #include<SFML/Graphics.hpp>
 #include "state.hpp"
 #include "game.hpp"
+#include "Global.hpp"
 
 namespace tetris
 {
@@ -33,6 +34,12 @@ namespace tetris
                         2,3,4,5, // O
                 };
         int x_postion_of_tetromino=0,y_postion_of_tetromino=0;
+
+        sf::RectangleShape cell;
+
+        float accumulate_time=0, delay=0.3;
+
+
 
     };
 }
