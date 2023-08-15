@@ -2,7 +2,6 @@
 #include <iostream>
 
 namespace tetris{
-    GamePlayState::GamePlayState(tetris::GameDataRef data) : _data(data){}
 
    void  GamePlayState::init()
     {
@@ -19,8 +18,25 @@ namespace tetris{
              if (sf::Event::Closed == evt.type)
              {
                  _data->window.close();
-
-
+             }
+             else if (sf::Event::KeyPressed == evt.type)
+             {
+                 if (evt.key.code == sf::Keyboard::Left)
+                 {
+                     block.move_left();
+                 }
+                 if (evt.key.code == sf::Keyboard::Right)
+                 {
+                     block.move_right();
+                 }
+                 if (evt.key.code == sf::Keyboard::Up)
+                 {
+                     block.move_up();
+                 }
+                 if (evt.key.code == sf::Keyboard::Down)
+                 {
+                     block.move_down();
+                 }
              }
          }
      }
@@ -30,24 +46,23 @@ namespace tetris{
      }
     void  GamePlayState::render(float dt)
      {
-
-        sf::RectangleShape cell (sf::Vector2f(30,30));
-        cell.setFillColor(sf::Color(0,100,100,100));
+         sf::RectangleShape cell (sf::Vector2f(CELL_SIZE,CELL_SIZE));
+         cell.setFillColor(sf::Color(0,100,100,100));
          _data->window.clear(sf::Color::Black);
          for(int i=0;i<10;i++)
          {
              for(int j=0;j<20;j++)
              {
-                 cell.setPosition(((i+15) * 31) , ((j+1) * 31) );
-                 _sprite_for_ColorBox.setTextureRect(sf::IntRect (30 *(j%7),0,30,30));
-
+                 cell.setPosition(((i+15) * (CELL_SIZE+1)) , ((j+1) * (CELL_SIZE+1)) );
                  _data->window.draw(cell);
-                 _sprite_for_ColorBox.setPosition(((i+15) * 31),((j+1) * 31) );
-                 _data->window.draw(_sprite_for_ColorBox);
              }
          }
-
-
-        _data->window.display();
+         for(int k=0; k<4; k++)
+         {
+             block.cells[k].set_sprite();
+             block.cells[k].draw();
+         }
+         _data->window.display();
      }
+
 }
