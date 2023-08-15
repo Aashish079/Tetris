@@ -54,21 +54,37 @@ namespace tetris
         {
             return _y;
         }
+        int get_shape_id()
+        {
+            return _shape_id;
+        }
     };
     class Tetromino
     {
+    private:
+        bool locked;
+        int _shape_id;
     public:
 
         Cell cells[4];
 
-        Tetromino(GameDataRef& data, int shape_id=3)
+        Tetromino(GameDataRef& data, int shape_id=3): _shape_id(shape_id)
         {
             for(int i=0; i<4; i++)
             {
                 cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]/2), shape_id, data);
             }
+            locked = false;
         }
 
+        void operator () (GameDataRef& data, int shape_id=3)
+        {
+            for(int i=0; i<4; i++)
+            {
+                cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]/2), shape_id, data);
+            }
+            locked = false;
+        }
         bool is_inside_grid(float x_increase, float y_increase)
         {
             bool result= true;
@@ -121,6 +137,18 @@ namespace tetris
             {
                 move(0,1);
             }
+        }
+        void set_locked(bool value)
+        {
+            locked = value;
+        }
+        int get_shape_id()
+        {
+            return _shape_id;
+        }
+        bool is_locked()
+        {
+            return locked;
         }
     };
 }

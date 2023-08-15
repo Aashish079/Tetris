@@ -18,6 +18,7 @@ namespace tetris
         void update(float dt);
         void render(float dt);
 
+        int grid[10][20];
     private:
         GameDataRef _data;
 
@@ -25,7 +26,6 @@ namespace tetris
         sf::Text _text;
         sf::Clock _clock;
 
-        int grid[10][20];
         Tetromino block;
     };
 

@@ -5,10 +5,17 @@ namespace tetris{
 
    void  GamePlayState::init()
     {
+       for (int i=0; i<ROWS; i++)
+       {
+           for (int j=0; j<COLUMNS; j++)
+           {
+               grid[i][j] = 7;
+           }
+       }
         _data->assets.loadTexture("ColorBox", "../rec/ColorBox.png");
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
         cell.setTexture(_data->assets.getTexture("ColorBox"));
-        cell.setTextureRect(sf::IntRect (30 *7,0,30,30));
+
 
     }
 
@@ -39,12 +46,27 @@ namespace tetris{
                  {
                      block.move_down();
                  }
+                 if (evt.key.code == sf::Keyboard::Space)
+                 {
+                     block.set_locked(true);
+                 }
              }
          }
      }
     void  GamePlayState::update(float dt)
      {
-
+        if(block.is_locked())
+        {
+            int id = block.get_shape_id();
+            for (int i=0; i<4; i++)
+            {
+                int x_index, y_index;
+                x_index = static_cast<int>((block.cells[i].get_x()-X_BOARD)/(CELL_SIZE+1));
+                y_index = static_cast<int>((block.cells[i].get_y()-Y_BOARD)/(CELL_SIZE+1));
+                grid[x_index][y_index] = id;
+            }
+            block(_data);
+        }
      }
     void  GamePlayState::render(float dt)
      {
@@ -55,6 +77,7 @@ namespace tetris{
          {
              for(int j=0;j<20;j++)
              {
+                 cell.setTextureRect(sf::IntRect (CELL_SIZE *grid[i][j],0,CELL_SIZE,CELL_SIZE));
                  cell.setPosition(((i+17) * (CELL_SIZE+1)) , ((j+1) * (CELL_SIZE+1)) );
                  _data->window.draw(cell);
              }
