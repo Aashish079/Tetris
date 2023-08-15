@@ -3,17 +3,6 @@
 #include "SFML/Graphics.hpp"
 #include "globals.hpp"
 
-constexpr int shapes[7][4] =
-        {
-                {1, 3, 5, 7}, //I
-                {2, 4, 5, 7}, //Z
-                {3, 5, 4, 6}, //S
-                {3, 5, 4, 7}, //T
-                {2, 3, 5, 7}, //L
-                {3, 5, 7, 6}, //J
-                {2, 3, 4, 5}  //O
-        };
-
 namespace tetris
 {
     class Cell
@@ -64,11 +53,11 @@ namespace tetris
     private:
         bool locked;
         int _shape_id;
-    public:
 
+    public:
         Cell cells[4];
 
-        Tetromino(GameDataRef& data, int shape_id=3): _shape_id(shape_id)
+        Tetromino(GameDataRef& data, int shape_id=2): _shape_id(shape_id)
         {
             for(int i=0; i<4; i++)
             {
@@ -77,13 +66,22 @@ namespace tetris
             locked = false;
         }
 
-        void operator () (GameDataRef& data, int shape_id=3)
+        void operator () (GameDataRef& data, int shape_id=2)
         {
             for(int i=0; i<4; i++)
             {
                 cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]/2), shape_id, data);
             }
             locked = false;
+        }
+        bool is_touching_other(int x_increase, int y_increase)
+        {
+            bool result = false;
+            for(int i=0; i<4; i++)
+            {
+                int x_index, y_index;
+
+            }
         }
         bool is_inside_grid(float x_increase, float y_increase)
         {
@@ -95,6 +93,7 @@ namespace tetris
                 if (!((cells[i].get_x() + x_increase >= X_BOARD) && (cells[i].get_x() + x_increase < X_BOARD + 10*(CELL_SIZE+1)) && (cells[i].get_y() + y_increase >= Y_BOARD) && (cells[i].get_y() + y_increase < Y_BOARD + 20*(CELL_SIZE+1))))
                 {
                     result = false;
+                    break;
                 }
             }
             return result;

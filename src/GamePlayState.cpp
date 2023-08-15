@@ -1,8 +1,9 @@
 #include "GamePlayState.hpp"
 #include <iostream>
 
-namespace tetris{
 
+
+namespace tetris{
    void  GamePlayState::init()
     {
        for (int i=0; i<ROWS; i++)
@@ -32,19 +33,88 @@ namespace tetris{
              {
                  if (evt.key.code == sf::Keyboard::Left)
                  {
-                     block.move_left();
+                     if(block.is_inside_grid(-1,0))
+                     {
+
+                         bool is_touching_other = false;
+                         for (int i=0; i<4; i++)
+                         {
+                             int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1)) - 1;
+                             int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1));
+                             if (grid[x_index][y_index]!=7)
+                             {
+                                 is_touching_other = true;
+                                 break;
+                             }
+                         }
+                         if (!is_touching_other)
+                         {
+                             block.move_left();
+                         }
+                     }
                  }
                  if (evt.key.code == sf::Keyboard::Right)
                  {
-                     block.move_right();
+                     if(block.is_inside_grid(1,0))
+                     {
+                         bool is_touching_other = false;
+                         for (int i=0; i<4; i++)
+                         {
+                             int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1)) + 1;
+                             int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1));
+                             if (grid[x_index][y_index]!=7)
+                             {
+                                 is_touching_other = true;
+                                 break;
+                             }
+                         }
+                         if (!is_touching_other)
+                         {
+                             block.move_right();
+                         }
+                     }
                  }
                  if (evt.key.code == sf::Keyboard::Up)
                  {
-                     block.move_up();
+                     if(block.is_inside_grid(0,-1))
+                     {
+                         bool is_touching_other = false;
+                         for (int i=0; i<4; i++)
+                         {
+                             int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
+                             int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) - 1;
+                             if (grid[x_index][y_index]!=7)
+                             {
+                                 is_touching_other = true;
+                                 break;
+                             }
+                         }
+                         if (!is_touching_other)
+                         {
+                             block.move_up();
+                         }
+                     }
                  }
                  if (evt.key.code == sf::Keyboard::Down)
                  {
-                     block.move_down();
+                     if(block.is_inside_grid(0,1))
+                     {
+                         bool is_touching_other = false;
+                         for (int i=0; i<4; i++)
+                         {
+                             int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
+                             int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) + 1;
+                             if (grid[x_index][y_index]!=7)
+                             {
+                                 is_touching_other = true;
+                                 break;
+                             }
+                         }
+                         if (!is_touching_other)
+                         {
+                             block.move_down();
+                         }
+                     }
                  }
                  if (evt.key.code == sf::Keyboard::Space)
                  {
