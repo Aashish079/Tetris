@@ -22,11 +22,14 @@ namespace tetris
         float _x, _y;
         int _shape_id;
         GameDataRef _data;
-        sf::Sprite _cell_sprite; //hello world
+        sf::Sprite _cell_sprite;
+        bool is_locked;
     public:
         Cell(){}
         Cell(float x, float y, int shape_id, GameDataRef& data):_x(x), _y(y), _shape_id(shape_id), _data(data)
-        {}
+        {
+            is_locked = false;
+        }
         void set_sprite()
         {
             _cell_sprite.setTexture(_data->assets.getTexture("ColorBox"));
@@ -58,7 +61,7 @@ namespace tetris
 
         Cell cells[4];
 
-        Tetromino(GameDataRef& data, int shape_id=0)
+        Tetromino(GameDataRef& data, int shape_id=3)
         {
             for(int i=0; i<4; i++)
             {
@@ -66,32 +69,57 @@ namespace tetris
             }
         }
 
-        void move_left()
+        bool is_inside_grid(float x_increase, float y_increase)
         {
+            bool result= true;
+            x_increase *= (CELL_SIZE+1);
+            y_increase *= (CELL_SIZE+1);
+            for (int i=0; i<4; i++)
+            {
+                if (!((cells[i].get_x() + x_increase >= X_BOARD) && (cells[i].get_x() + x_increase < X_BOARD + 10*(CELL_SIZE+1)) && (cells[i].get_y() + y_increase >= Y_BOARD) && (cells[i].get_y() + y_increase < Y_BOARD + 20*(CELL_SIZE+1))))
+                {
+                    result = false;
+                }
+            }
+            return result;
+        }
+
+        void move(float x_increase, float y_increase)
+        {
+            x_increase *= (CELL_SIZE+1);
+            y_increase *= (CELL_SIZE+1);
             for(int i=0; i<4; i++)
             {
-                cells[i].set_position(cells[i].get_x() - (CELL_SIZE + 1), cells[i].get_y());
+                cells[i].set_position(cells[i].get_x() + x_increase , cells[i].get_y() + y_increase);
+            }
+        }
+
+        void move_left()
+        {
+            if (is_inside_grid(-1,0))
+            {
+                move(-1,0);
             }
         }
         void move_right()
         {
-            for(int i=0; i<4; i++)
+            if (is_inside_grid(1,0))
             {
-                cells[i].set_position(cells[i].get_x() + (CELL_SIZE + 1), cells[i].get_y());
+                move(1,0);
             }
         }
         void move_up()
         {
-            for(int i=0; i<4; i++)
+            if (is_inside_grid(0,-1))
             {
-                cells[i].set_position(cells[i].get_x(), cells[i].get_y()- (CELL_SIZE + 1));
+                move(0,-1);
             }
         }
         void move_down()
         {
-            for(int i=0; i<4; i++)
+            if (is_inside_grid(0,1))
             {
-                cells[i].set_position(cells[i].get_x(), cells[i].get_y() + (CELL_SIZE + 1));
+                move(0,1);
             }
         }
     };
