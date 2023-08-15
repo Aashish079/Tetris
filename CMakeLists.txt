@@ -12,6 +12,7 @@ set(SOURCE_FILES
         src/MainMenuState.cpp
         src/GamePlayState.cpp
         src/InputManager.cpp
+        inc/Tetromino.hpp
 
 )
 add_executable(sfml_test ${SOURCE_FILES})

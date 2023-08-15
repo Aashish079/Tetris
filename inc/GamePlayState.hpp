@@ -21,7 +21,7 @@ namespace tetris
     private:
         GameDataRef _data;
 
-        sf::Sprite _sprite_for_ColorBox;
+        sf::Sprite _sprite_for_ColorBox ,cell;
         sf::Text _text;
         sf::Clock _clock;
 

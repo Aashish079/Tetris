@@ -7,6 +7,8 @@ namespace tetris{
     {
         _data->assets.loadTexture("ColorBox", "../rec/ColorBox.png");
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
+        cell.setTexture(_data->assets.getTexture("ColorBox"));
+        cell.setTextureRect(sf::IntRect (30 *7,0,30,30));
 
     }
 
@@ -46,14 +48,14 @@ namespace tetris{
      }
     void  GamePlayState::render(float dt)
      {
-         sf::RectangleShape cell (sf::Vector2f(CELL_SIZE,CELL_SIZE));
-         cell.setFillColor(sf::Color(0,100,100,100));
+
+
          _data->window.clear(sf::Color::Black);
          for(int i=0;i<10;i++)
          {
              for(int j=0;j<20;j++)
              {
-                 cell.setPosition(((i+15) * (CELL_SIZE+1)) , ((j+1) * (CELL_SIZE+1)) );
+                 cell.setPosition(((i+17) * (CELL_SIZE+1)) , ((j+1) * (CELL_SIZE+1)) );
                  _data->window.draw(cell);
              }
          }
