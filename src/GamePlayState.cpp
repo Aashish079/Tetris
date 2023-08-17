@@ -118,7 +118,7 @@ namespace tetris{
                 }
                 if (evt.key.code == sf::Keyboard::Space)
                 {
-                    block.set_locked(true);
+//                    block.set_locked(true);
                 }
             }
         }
@@ -177,6 +177,43 @@ namespace tetris{
 
             block(_data);
         }
+
+        // timer
+
+        time=_clock.getElapsedTime().asSeconds();
+        _clock.restart();
+        accumulated_time+=time;
+
+        if(accumulated_time>delay)
+        {
+            // movedown
+            if(block.is_inside_grid(0,1))
+            {
+                bool is_touching_other = false;
+                for (int i=0; i<4; i++)
+                {
+                    int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
+                    int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) + 1;
+                    if (grid[x_index][y_index]!=7)
+                    {
+                        is_touching_other = true;
+                        block.set_locked(true);
+                        break;
+                    }
+                }
+                if (!is_touching_other)
+                {
+                    block.move_down();
+                }
+            }
+            else
+            {
+                block.set_locked(true);
+            }
+
+            accumulated_time=0;
+        }
+
 
     }
     void  GamePlayState::render(float dt)

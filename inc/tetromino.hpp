@@ -39,9 +39,9 @@ namespace tetris
     public:
         Cell cells[4];
 
-        Tetromino(GameDataRef& data, int shape_id=3);
+        Tetromino(GameDataRef& data, int shape_id=6);
 
-        void operator () (GameDataRef& data, int shape_id=3);
+        void operator () (GameDataRef& data, int shape_id=6);
 
 
         bool is_inside_grid(float x_increase, float y_increase);

@@ -30,6 +30,8 @@ namespace tetris
         sf::Clock _clock;
 
         Tetromino block;
+
+        float time, accumulated_time =0,delay=0.5;
     };
 
 }
