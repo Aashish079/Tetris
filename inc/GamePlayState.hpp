@@ -6,7 +6,7 @@
 #include "globals.hpp"
 #include "tetromino.hpp"
 
-extern int grid[20][10];
+
 
 namespace tetris
 {
