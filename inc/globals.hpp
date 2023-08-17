@@ -11,6 +11,10 @@ constexpr int Y_BOARD = (CELL_SIZE + 1);
 constexpr int X_SPAWN = X_BOARD + 4 * (CELL_SIZE+1);
 constexpr int Y_SPAWN = Y_BOARD;
 
+constexpr int X_NEXT_BLOCK = X_BOARD + 13 * (CELL_SIZE+1);
+constexpr int Y_NEXT_BLOCK = Y_BOARD + (CELL_SIZE+1);
+
+
 constexpr int shapes[7][4] =
         {
                 {1, 3, 5, 7}, //I

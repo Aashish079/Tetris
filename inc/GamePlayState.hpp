@@ -5,7 +5,7 @@
 #include "game.hpp"
 #include "globals.hpp"
 #include "tetromino.hpp"
-
+#include "random"
 
 
 namespace tetris
@@ -13,12 +13,14 @@ namespace tetris
     class GamePlayState: public State
     {
     public:
-        GamePlayState (GameDataRef data):_data(data), block(data){};
+        GamePlayState (GameDataRef data):_data(data),block(_data, current_shape_id = generate_shape_id()), next_block(_data, next_shape_id = generate_shape_id()){};
         void init();
 
         void handleInput();
         void update(float dt);
         void render(float dt);
+
+        int generate_shape_id();
 
         int grid[10][20];
     private:
@@ -29,7 +31,8 @@ namespace tetris
         sf::Text _text;
         sf::Clock _clock;
 
-        Tetromino block;
+        Tetromino block, next_block;
+        int current_shape_id, next_shape_id;
 
         float time, accumulated_time =0,delay=0.5;
     };

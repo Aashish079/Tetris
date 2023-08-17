@@ -17,7 +17,6 @@ namespace tetris{
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
         cell.setTexture(_data->assets.getTexture("ColorBox"));
 
-
     }
 
     void  GamePlayState:: handleInput()
@@ -175,7 +174,8 @@ namespace tetris{
                 }
             }
 
-            block(_data);
+            block(_data, next_shape_id);
+            next_block(_data, next_shape_id = generate_shape_id());
         }
 
         // timer
@@ -235,7 +235,27 @@ namespace tetris{
             block.cells[k].set_sprite();
             block.cells[k].draw();
         }
+
+        next_block.set_reference_position();
+        for(int k=0; k<4; k++)
+        {
+            next_block.cells[k].set_sprite();
+            next_block.cells[k].draw();
+        }
+
         _data->window.display();
     }
 
+    int GamePlayState::generate_shape_id()
+    {
+        std::random_device rd;  // Seed generator with a true random number from the system
+        std::mt19937 generator(rd());  // Mersenne Twister engine
+
+        // Define the range for random numbers
+        std::uniform_int_distribution<int> distribution(0, 6);  // Range: [1, 100]
+
+        // Generate and print random numbers
+        int random_number = distribution(generator);
+        return random_number;
+    }
 }

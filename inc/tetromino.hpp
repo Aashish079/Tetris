@@ -37,12 +37,14 @@ namespace tetris
         int _shape_id;
 
     public:
+        GameDataRef _data;
         Cell cells[4];
+        Tetromino(){}
+        Tetromino(GameDataRef& data, int shape_id);
 
-        Tetromino(GameDataRef& data, int shape_id=6);
+        void operator () (GameDataRef& data, int shape_id);
 
-        void operator () (GameDataRef& data, int shape_id=6);
-
+        void set_reference_position();
 
         bool is_inside_grid(float x_increase, float y_increase);
 

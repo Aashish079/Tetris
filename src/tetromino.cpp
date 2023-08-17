@@ -31,29 +31,39 @@ namespace tetris
         {
             return _y;
         }
-        int Cell::get_shape_id()
-        {
-            return _shape_id;
-        }
 
 
-Tetromino::Tetromino(GameDataRef& data, int shape_id): _shape_id(shape_id)
+Tetromino::Tetromino(GameDataRef& data, int shape_id)
         {
+            _data = data;
+            _shape_id = shape_id;
+            locked = false;
             for(int i=0; i<4; i++)
             {
-                cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]/2), shape_id, data);
+                cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[_shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[_shape_id][i]/2), _shape_id, _data);
             }
-            locked = false;
         }
 
         void Tetromino:: operator () (GameDataRef& data, int shape_id)
         {
+            _data = data;
+            _shape_id = shape_id;
+            locked = false;
             for(int i=0; i<4; i++)
             {
-                cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[shape_id][i]/2), shape_id, data);
+                cells[i] = Cell(X_SPAWN + (CELL_SIZE+1)*(shapes[_shape_id][i]%2), Y_SPAWN + (CELL_SIZE+1)*(shapes[_shape_id][i]/2), _shape_id, _data);
             }
-            locked = false;
         }
+
+        void Tetromino::set_reference_position()
+        {
+            locked = true;
+            for(int i=0; i<4; i++)
+            {
+                cells[i] = Cell(X_NEXT_BLOCK + (CELL_SIZE+1)*(shapes[_shape_id][i]%2), Y_NEXT_BLOCK + (CELL_SIZE+1)*(shapes[_shape_id][i]/2), _shape_id, _data);
+            }
+        }
+
         bool Tetromino:: is_inside_grid(float x_increase, float y_increase)
         {
             bool result= true;
