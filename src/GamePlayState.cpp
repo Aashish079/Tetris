@@ -17,7 +17,16 @@ namespace tetris{
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
         cell.setTexture(_data->assets.getTexture("ColorBox"));
 
+        _data->assets.loadTexture("NextTetrominoFrame","../rec/NextTetrominoFrame.png");
+        _NextTetrominoFrame.setTexture(_data->assets.getTexture("NextTetrominoFrame"));
+        _NextTetrominoFrame.setPosition(X_NEXT_BLOCK-31,Y_NEXT_BLOCK-31);
+
+        _data->assets.loadTexture("GridFrame","../rec/GridFrame.png");
+        _GridFrame.setTexture(_data->assets.getTexture("GridFrame"));
+        _GridFrame.setPosition(X_BOARD-3,Y_BOARD-3);   // 3 is subtracted of stroke
+
     }
+
 
     void  GamePlayState:: handleInput()
     {
@@ -242,6 +251,11 @@ namespace tetris{
             next_block.cells[k].set_sprite();
             next_block.cells[k].draw();
         }
+
+
+        _data->window.draw(_NextTetrominoFrame);
+        _data->window.draw(_GridFrame);
+
 
         _data->window.display();
     }
