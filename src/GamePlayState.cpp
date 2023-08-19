@@ -1,14 +1,13 @@
 #include "GamePlayState.hpp"
 #include <iostream>
 
-
-
-namespace tetris{
-    void  GamePlayState::init()
+namespace tetris
+{
+    void GamePlayState::init()
     {
-        for (int i=0; i<ROWS; i++)
+        for (int i = 0; i < ROWS; i++)
         {
-            for (int j=0; j<COLUMNS; j++)
+            for (int j = 0; j < COLUMNS; j++)
             {
                 grid[i][j] = 7;
             }
@@ -17,18 +16,16 @@ namespace tetris{
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
         cell.setTexture(_data->assets.getTexture("ColorBox"));
 
-        _data->assets.loadTexture("NextTetrominoFrame","../rec/NextTetrominoFrame.png");
+        _data->assets.loadTexture("NextTetrominoFrame", "../rec/NextTetrominoFrame.png");
         _NextTetrominoFrame.setTexture(_data->assets.getTexture("NextTetrominoFrame"));
-        _NextTetrominoFrame.setPosition(X_NEXT_BLOCK-31,Y_NEXT_BLOCK-31);
+        _NextTetrominoFrame.setPosition(X_NEXT_BLOCK - 31, Y_NEXT_BLOCK - 31);
 
-        _data->assets.loadTexture("GridFrame","../rec/GridFrame.png");
+        _data->assets.loadTexture("GridFrame", "../rec/GridFrame.png");
         _GridFrame.setTexture(_data->assets.getTexture("GridFrame"));
-        _GridFrame.setPosition(X_BOARD-3,Y_BOARD-3);   // 3 is subtracted of stroke
-
+        _GridFrame.setPosition(X_BOARD - 3, Y_BOARD - 3); // 3 is subtracted of stroke
     }
 
-
-    void  GamePlayState:: handleInput()
+    void GamePlayState::handleInput()
     {
         sf::Event evt;
         while (_data->window.pollEvent(evt))
@@ -41,15 +38,15 @@ namespace tetris{
             {
                 if (evt.key.code == sf::Keyboard::Left)
                 {
-                    if(block.is_inside_grid(-1,0))
+                    if (block.is_inside_grid(-1, 0))
                     {
 
                         bool is_touching_other = false;
-                        for (int i=0; i<4; i++)
+                        for (int i = 0; i < 4; i++)
                         {
-                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1)) - 1;
-                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1));
-                            if (grid[x_index][y_index]!=7)
+                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE + 1)) - 1;
+                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE + 1));
+                            if (grid[x_index][y_index] != 7)
                             {
                                 is_touching_other = true;
                                 break;
@@ -63,14 +60,14 @@ namespace tetris{
                 }
                 if (evt.key.code == sf::Keyboard::Right)
                 {
-                    if(block.is_inside_grid(1,0))
+                    if (block.is_inside_grid(1, 0))
                     {
                         bool is_touching_other = false;
-                        for (int i=0; i<4; i++)
+                        for (int i = 0; i < 4; i++)
                         {
-                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1)) + 1;
-                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1));
-                            if (grid[x_index][y_index]!=7)
+                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE + 1)) + 1;
+                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE + 1));
+                            if (grid[x_index][y_index] != 7)
                             {
                                 is_touching_other = true;
                                 break;
@@ -84,14 +81,14 @@ namespace tetris{
                 }
                 if (evt.key.code == sf::Keyboard::Up)
                 {
-                    if(block.is_inside_grid(0,-1))
+                    if (block.is_inside_grid(0, -1))
                     {
                         bool is_touching_other = false;
-                        for (int i=0; i<4; i++)
+                        for (int i = 0; i < 4; i++)
                         {
-                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
-                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) - 1;
-                            if (grid[x_index][y_index]!=7)
+                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE + 1));
+                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE + 1)) - 1;
+                            if (grid[x_index][y_index] != 7)
                             {
                                 is_touching_other = true;
                                 break;
@@ -105,14 +102,14 @@ namespace tetris{
                 }
                 if (evt.key.code == sf::Keyboard::Down)
                 {
-                    if(block.is_inside_grid(0,1))
+                    if (block.is_inside_grid(0, 1))
                     {
                         bool is_touching_other = false;
-                        for (int i=0; i<4; i++)
+                        for (int i = 0; i < 4; i++)
                         {
-                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
-                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) + 1;
-                            if (grid[x_index][y_index]!=7)
+                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE + 1));
+                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE + 1)) + 1;
+                            if (grid[x_index][y_index] != 7)
                             {
                                 is_touching_other = true;
                                 break;
@@ -126,60 +123,60 @@ namespace tetris{
                 }
                 if (evt.key.code == sf::Keyboard::Space)
                 {
-//                    block.set_locked(true);
+                    //                    block.set_locked(true);
                 }
             }
         }
     }
-    void  GamePlayState::update(float dt)
+    void GamePlayState::update(float dt)
     {
         // filling id getting data into grid
-        if(block.is_locked())
+        if (block.is_locked())
         {
             int id = block.get_shape_id();
-            for (int i=0; i<4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 int x_index, y_index;
-                x_index = static_cast<int>((block.cells[i].get_x()-X_BOARD)/(CELL_SIZE+1));
-                y_index = static_cast<int>((block.cells[i].get_y()-Y_BOARD)/(CELL_SIZE+1));
+                x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE + 1));
+                y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE + 1));
                 grid[x_index][y_index] = id;
             }
 
             // clearing row
-            for(int row =0 ; row<20;row++)
+            for (int row = 0; row < 20; row++)
             {
-                bool is_a_row_filled= true;
-                for (int column =0 ;column<10;column++)
+                bool is_a_row_filled = true;
+                for (int column = 0; column < 10; column++)
                 {
-                    if(grid[column][row]==7)
+                    if (grid[column][row] == 7)
                     {
-                        is_a_row_filled= false;
-                        std::cout<<"The row is not filled"<<std::endl;
-                        std::cout<<column<<" "<<is_a_row_filled<<std::endl;
+                        is_a_row_filled = false;
+                        std::cout << "The row is not filled" << std::endl;
+                        std::cout << column << " " << is_a_row_filled << std::endl;
                         break;
                     }
                 }
-                if(is_a_row_filled== true)
+                if (is_a_row_filled == true)
                 {
-                    if(row>0)
+                    if (row > 0)
                     {
-                        for(row;row>0;row--)
+                        for (row; row > 0; row--)
                         {
                             for (int column = 0; column < 10; column++)
                             {
-                                grid[column][row] = grid[column ][row-1];
+                                grid[column][row] = grid[column][row - 1];
                                 std::cout << "clearing row" << std::endl;
                             }
                         }
                     }
-                    if(row==0)
+                    if (row == 0)
                     {
-                        for (int column = 0; column < 10; column++) {
+                        for (int column = 0; column < 10; column++)
+                        {
                             grid[column][0] = 7;
                             std::cout << "clearing 1st row" << std::endl;
                         }
                     }
-
                 }
             }
 
@@ -189,21 +186,21 @@ namespace tetris{
 
         // timer
 
-        time=_clock.getElapsedTime().asSeconds();
+        time = _clock.getElapsedTime().asSeconds();
         _clock.restart();
-        accumulated_time+=time;
+        accumulated_time += time;
 
-        if(accumulated_time>delay)
+        if (accumulated_time > delay)
         {
             // movedown
-            if(block.is_inside_grid(0,1))
+            if (block.is_inside_grid(0, 1))
             {
                 bool is_touching_other = false;
-                for (int i=0; i<4; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
-                    int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) + 1;
-                    if (grid[x_index][y_index]!=7)
+                    int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE + 1));
+                    int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE + 1)) + 1;
+                    if (grid[x_index][y_index] != 7)
                     {
                         is_touching_other = true;
                         block.set_locked(true);
@@ -220,53 +217,48 @@ namespace tetris{
                 block.set_locked(true);
             }
 
-            accumulated_time=0;
+            accumulated_time = 0;
         }
-
-
     }
-    void  GamePlayState::render(float dt)
+    void GamePlayState::render(float dt)
     {
 
-
         _data->window.clear(sf::Color::Black);
-        for(int i=0;i<10;i++)
+        for (int i = 0; i < 10; i++)
         {
-            for(int j=0;j<20;j++)
+            for (int j = 0; j < 20; j++)
             {
-                cell.setTextureRect(sf::IntRect (CELL_SIZE *grid[i][j],0,CELL_SIZE,CELL_SIZE));
-                cell.setPosition(((i+17) * (CELL_SIZE+1)) , ((j+1) * (CELL_SIZE+1)) );
+                cell.setTextureRect(sf::IntRect(CELL_SIZE * grid[i][j], 0, CELL_SIZE, CELL_SIZE));
+                cell.setPosition(((i + 17) * (CELL_SIZE + 1)), ((j + 1) * (CELL_SIZE + 1)));
                 _data->window.draw(cell);
             }
         }
-        for(int k=0; k<4; k++)
+        for (int k = 0; k < 4; k++)
         {
             block.cells[k].set_sprite();
             block.cells[k].draw();
         }
 
         next_block.set_reference_position();
-        for(int k=0; k<4; k++)
+        for (int k = 0; k < 4; k++)
         {
             next_block.cells[k].set_sprite();
             next_block.cells[k].draw();
         }
 
-
         _data->window.draw(_NextTetrominoFrame);
         _data->window.draw(_GridFrame);
-
 
         _data->window.display();
     }
 
     int GamePlayState::generate_shape_id()
     {
-        std::random_device rd;  // Seed generator with a true random number from the system
-        std::mt19937 generator(rd());  // Mersenne Twister engine
+        std::random_device rd;        // Seed generator with a true random number from the system
+        std::mt19937 generator(rd()); // Mersenne Twister engine
 
         // Define the range for random numbers
-        std::uniform_int_distribution<int> distribution(0, 6);  // Range: [1, 100]
+        std::uniform_int_distribution<int> distribution(0, 6); // Range: [1, 100]
 
         // Generate and print random numbers
         int random_number = distribution(generator);

@@ -13,6 +13,7 @@ namespace tetris
         int _shape_id; //Sprite
         GameDataRef _data; //Window Handler
         sf::Sprite _cell_sprite;
+        bool is_locked;
     public:
         Cell();
         Cell(float x, float y, int shape_id, GameDataRef& data);
