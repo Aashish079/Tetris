@@ -9,9 +9,9 @@ namespace tetris
     class Cell
     {
     private:
-        float _x, _y;
-        int _shape_id;
-        GameDataRef _data;
+        float _x, _y; //Corner of cell
+        int _shape_id; //Sprite
+        GameDataRef _data; //Window Handler
         sf::Sprite _cell_sprite;
         bool is_locked;
     public:
