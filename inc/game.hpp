@@ -18,6 +18,7 @@ namespace tetris
         sf::RenderWindow window;
         AssetManager assets;
         InputManager input;
+
 #ifdef DEBUG
         int FPS, UPS;
 #endif

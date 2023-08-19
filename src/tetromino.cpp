@@ -131,4 +131,29 @@ Tetromino::Tetromino(GameDataRef& data, int shape_id)
             return locked;
         }
 
+        float Tetromino::get_rotated_x(Cell c)
+        {
+            float x_ref = cells[1].get_x();
+            float y_ref = cells[1].get_y();
+            float x_rotated = x_ref + c.get_y() - y_ref;
+            return x_rotated;
+        }
+        float Tetromino::get_rotated_y(Cell c)
+        {
+            float x_ref = cells[1].get_x();
+            float y_ref = cells[1].get_y();
+            float y_rotated = y_ref - c.get_x() + x_ref;
+            return y_rotated;
+        }
+
+        void Tetromino::calc_extreme_x_pos()
+        {
+            x_largest = cells[0].get_x();
+            x_smallest = cells[0].get_x();
+            for (int i=1; i<4; i++)
+            {
+                if (x_largest < cells[i].get_x()) x_largest = cells[i].get_x();
+                if (x_smallest > cells[i].get_x()) x_smallest = cells[i].get_x();
+            }
+        }
 }

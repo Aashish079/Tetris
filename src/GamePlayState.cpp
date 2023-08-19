@@ -84,24 +84,7 @@ namespace tetris{
                 }
                 if (evt.key.code == sf::Keyboard::Up)
                 {
-                    if(block.is_inside_grid(0,-1))
-                    {
-                        bool is_touching_other = false;
-                        for (int i=0; i<4; i++)
-                        {
-                            int x_index = static_cast<int>((block.cells[i].get_x() - X_BOARD) / (CELL_SIZE+1));
-                            int y_index = static_cast<int>((block.cells[i].get_y() - Y_BOARD) / (CELL_SIZE+1)) - 1;
-                            if (grid[x_index][y_index]!=7)
-                            {
-                                is_touching_other = true;
-                                break;
-                            }
-                        }
-                        if (!is_touching_other)
-                        {
-                            block.move_up();
-                        }
-                    }
+                    rotate();
                 }
                 if (evt.key.code == sf::Keyboard::Down)
                 {
@@ -187,6 +170,7 @@ namespace tetris{
             next_block(_data, next_shape_id = generate_shape_id());
         }
 
+
         // timer
 
         time=_clock.getElapsedTime().asSeconds();
@@ -271,5 +255,87 @@ namespace tetris{
         // Generate and print random numbers
         int random_number = distribution(generator);
         return random_number;
+    }
+
+    void GamePlayState::calc_rotated_pts()
+    {
+        for(int i=0; i<4; i++)
+        {
+            x_rotated_pts[i] = block.get_rotated_x(block.cells[i]);
+            y_rotated_pts[i] = block.get_rotated_y(block.cells[i]);
+        }
+    }
+
+    void GamePlayState::rotate()
+    {
+        if (block.get_shape_id() != 6)
+        {
+            calc_rotated_pts();
+            bool rotation_touching_other = false;
+            for (int i = 0; i < 4; i++) {
+                int x_index = static_cast<int>((x_rotated_pts[i] - X_BOARD) / (CELL_SIZE + 1));
+                int y_index = static_cast<int>((y_rotated_pts[i] - Y_BOARD) / (CELL_SIZE + 1));
+                if (grid[x_index][y_index] != 7) {
+                    rotation_touching_other = true;
+                    break;
+                }
+            }
+            if (!rotation_touching_other) {
+                block.calc_extreme_x_pos();
+                if ((block.x_smallest >= X_BOARD) && (block.x_largest <= X_BOARD + (CELL_SIZE + 1) * 9)) {
+                    for (int i = 0; i < 4; i++) {
+                        block.cells[i].set_position(x_rotated_pts[i], y_rotated_pts[i]);
+                    }
+                }
+                else
+                {
+                    if (block.x_smallest < X_BOARD)
+                    {
+                        float diff = X_BOARD - block.x_smallest;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            x_rotated_pts[i] += diff;
+                        }
+                        bool shift_touching_other = false;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            int x_index = static_cast<int>((x_rotated_pts[i] - X_BOARD) / (CELL_SIZE + 1));
+                            int y_index = static_cast<int>((y_rotated_pts[i] - Y_BOARD) / (CELL_SIZE + 1));
+                            if (grid[x_index][y_index] != 7) {
+                                shift_touching_other = true;
+                                break;
+                            }
+                        }
+                        if (!shift_touching_other)
+                        {
+                            for (int i = 0; i < 4; i++)
+                            {
+                                block.cells[i].set_position(x_rotated_pts[i], y_rotated_pts[i]);
+                            }
+                        }
+                    }
+                    if (block.x_largest > X_BOARD + (CELL_SIZE + 1) * 9) {
+                        float diff = block.x_largest - (X_BOARD + (CELL_SIZE + 1) * 9);
+                        for (int i = 0; i < 4; i++) {
+                            x_rotated_pts[i] -= diff;
+                        }
+                        bool shift_touching_other = false;
+                        for (int i = 0; i < 4; i++) {
+                            int x_index = static_cast<int>((x_rotated_pts[i] - X_BOARD) / (CELL_SIZE + 1));
+                            int y_index = static_cast<int>((y_rotated_pts[i] - Y_BOARD) / (CELL_SIZE + 1));
+                            if (grid[x_index][y_index] != 7) {
+                                shift_touching_other = true;
+                                break;
+                            }
+                        }
+                        if (!shift_touching_other) {
+                            for (int i = 0; i < 4; i++) {
+                                block.cells[i].set_position(x_rotated_pts[i], y_rotated_pts[i]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
