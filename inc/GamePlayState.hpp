@@ -36,7 +36,8 @@ namespace tetris
 
         Tetromino block, next_block;
         int current_shape_id, next_shape_id;
-
+        int score_value = 0;
+        
         float time, accumulated_time =0,delay=0.5;
     };
 
