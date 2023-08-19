@@ -13,8 +13,11 @@ namespace tetris
             }
         }
         _data->assets.loadTexture("ColorBox", "../rec/ColorBox.png");
+        _data->assets.loadTexture("GameOver", "../rec/GameOver.png");
         _sprite_for_ColorBox.setTexture(_data->assets.getTexture("ColorBox"));
         cell.setTexture(_data->assets.getTexture("ColorBox"));
+        
+        _GameOver.setTexture(_data->assets.getTexture("GameOver"));
 
         _data->assets.loadTexture("NextTetrominoFrame", "../rec/NextTetrominoFrame.png");
         _NextTetrominoFrame.setTexture(_data->assets.getTexture("NextTetrominoFrame"));
@@ -197,6 +200,7 @@ namespace tetris
                 }
             }
 
+
             block(_data, next_shape_id);
             next_block(_data, next_shape_id = generate_shape_id());
         }
@@ -236,6 +240,19 @@ namespace tetris
 
             accumulated_time = 0;
         }
+
+        // Game Over
+        for (int i = 0; i < 10; i++)
+        {
+            if (grid[i][0] != 7)
+            {
+                is_game_over = true;
+                break;
+            }
+        }
+
+
+
     }
     void GamePlayState::render(float dt)
     {
@@ -262,11 +279,20 @@ namespace tetris
             next_block.cells[k].set_sprite();
             next_block.cells[k].draw();
         }
+        // Game Over Display
+        if(is_game_over){
+            std::cout<<"Game Over"<<std::endl;
+            _GameOver.setPosition(500,500);
+            _data->window.draw(_GameOver);
+            _data->window.display();
+        }
 
         _data->window.draw(_NextTetrominoFrame);
         _data->window.draw(_GridFrame);
 
         _data->window.display();
+
+
     }
 
     int GamePlayState::generate_shape_id()

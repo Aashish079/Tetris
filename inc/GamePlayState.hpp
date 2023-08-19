@@ -30,14 +30,14 @@ namespace tetris
         GameDataRef _data;
 
 
-        sf::Sprite _sprite_for_ColorBox ,cell, _NextTetrominoFrame, _GridFrame;
+        sf::Sprite _sprite_for_ColorBox ,cell, _NextTetrominoFrame, _GridFrame, _GameOver;
         sf::Text _text;
         sf::Clock _clock;
 
         Tetromino block, next_block;
         int current_shape_id, next_shape_id;
         int score_value = 0;
-        
+        bool is_game_over = false;
         float time, accumulated_time =0,delay=0.5;
     };
 

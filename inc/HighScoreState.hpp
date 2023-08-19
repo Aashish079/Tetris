@@ -13,7 +13,7 @@ namespace tetris
     class HighScoreState: public State
     {
     public:
-        HighScoreState ();
+        HighScoreState(GameDataRef data);
         void init();
 
         void handleInput();
@@ -23,6 +23,11 @@ namespace tetris
     private:
         long int highScore;
         long int topTen[10];
+         GameDataRef _data;
+
+        sf::Sprite _sprite;
+        sf::Text _text;
+        sf::Clock _clock;
     };
 
 }

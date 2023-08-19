@@ -4,6 +4,7 @@
 #include <iostream>
 #include "MainMenuState.hpp"
 #include "GamePlayState.hpp"
+#include "HighScoreState.hpp"
 
 namespace tetris
 {
@@ -62,12 +63,48 @@ namespace tetris
                 }
             }
 
+            // Hover for Highscore button
+            sf::Vector2i mousePosition2 = sf::Mouse::getPosition(_data->window);
+            sf::FloatRect spriteBounds2 = _sprite_for_HighScoreButton.getGlobalBounds();
+
+            if (spriteBounds.contains(mousePosition2.x, mousePosition2.y))
+            {
+                if (!isHovered)
+                {
+                    // Mouse entered the sprite
+
+                    isHovered = true;
+
+                    // Update sprite appearance when hovered
+                    // For example, you can change the sprite's color
+                    _sprite_for_HighScoreButton.setColor(sf::Color(100, 200, 200));
+                }
+            }
+            else
+            {
+                if (isHovered)
+                {
+                    // Mouse left the sprite
+                    isHovered = false;
+                    // Reset sprite appearance
+                    _sprite_for_HighScoreButton.setColor(sf::Color::White);
+                }
+            }
+
             if (_data->input.IsSpriteClicked(_sprite_for_PlayButton, sf::Mouse::Left, _data->window))
             {
                 std::cout << "go to GamePlay" << std::endl;
                 _data->machine.addState(StateRef(new GamePlayState(_data)), true);
                 //                _data->machine.addState(StateRef(new MainMenuState(_data)), true);
             }
+
+            if (_data->input.IsSpriteClicked(_sprite_for_HighScoreButton, sf::Mouse::Left, _data->window))
+            {
+                std::cout << "go to Highscore" << std::endl;
+                _data->machine.addState(StateRef(new HighScoreState(_data)), true);
+                //                _data->machine.addState(StateRef(new MainMenuState(_data)), true);
+            }
+
         }
     }
 
