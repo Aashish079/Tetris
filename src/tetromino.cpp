@@ -145,15 +145,4 @@ Tetromino::Tetromino(GameDataRef& data, int shape_id)
             float y_rotated = y_ref - c.get_x() + x_ref;
             return y_rotated;
         }
-
-        void Tetromino::calc_extreme_x_pos()
-        {
-            x_largest = cells[0].get_x();
-            x_smallest = cells[0].get_x();
-            for (int i=1; i<4; i++)
-            {
-                if (x_largest < cells[i].get_x()) x_largest = cells[i].get_x();
-                if (x_smallest > cells[i].get_x()) x_smallest = cells[i].get_x();
-            }
-        }
 }

@@ -23,9 +23,11 @@ namespace tetris
         int generate_shape_id();
         void calc_rotated_pts();
         void rotate();
+        void calc_extreme_x_pos();
 
         int grid[10][20];
         float x_rotated_pts[4], y_rotated_pts[4];
+        float x_largest, x_smallest;
     private:
         GameDataRef _data;
 

@@ -37,7 +37,7 @@ namespace tetris
         int _shape_id;
 
     public:
-        float x_largest, x_smallest;
+
         GameDataRef _data;
         Cell cells[4];
         Tetromino(){}
@@ -70,6 +70,5 @@ namespace tetris
         float get_rotated_x(Cell);
         float get_rotated_y(Cell);
 
-        void calc_extreme_x_pos();
     };
 }
