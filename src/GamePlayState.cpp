@@ -26,6 +26,10 @@ namespace tetris
         _data->assets.loadTexture("GridFrame", "../rec/GridFrame.png");
         _GridFrame.setTexture(_data->assets.getTexture("GridFrame"));
         _GridFrame.setPosition(X_BOARD - 3, Y_BOARD - 3); // 3 is subtracted of stroke
+
+        _data->assets.loadFont("Bebas", "../rec/Bebas-Regular.ttf");
+        _score.setFont(_data->assets.getFont("Bebas"));
+
     }
 
     void GamePlayState::handleInput()
@@ -147,7 +151,7 @@ namespace tetris
                 if (is_a_row_filled == true)
                 {
                     row_cleared_count++;
-                    score_value += pow(100, row_cleared_count + 1);
+                    score_value += pow(10, row_cleared_count + 1);
                 }
                 // Clears and shifts the row
                 if (is_a_row_filled == true)
@@ -272,13 +276,23 @@ namespace tetris
             block.cells[k].set_sprite();
             block.cells[k].draw();
         }
-
+        
+        //Draw Next Tetromino 
         next_block.set_reference_position();
         for (int k = 0; k < 4; k++)
         {
             next_block.cells[k].set_sprite();
             next_block.cells[k].draw();
         }
+
+        // Score Display
+        _score.setFont(_data->assets.getFont("Bebas"));
+        _score.setString("Score: " + std::to_string(score_value));
+        _score.setCharacterSize(30);
+        _score.setFillColor(sf::Color::White);
+        _score.setPosition(X_NEXT_BLOCK - CELL_SIZE, Y_NEXT_BLOCK + CELL_SIZE*6 );
+        _data->window.draw(_score);
+
         // Game Over Display
         if(is_game_over){
             std::cout<<"Game Over"<<std::endl;

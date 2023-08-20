@@ -31,7 +31,7 @@ namespace tetris
 
 
         sf::Sprite _sprite_for_ColorBox ,cell, _NextTetrominoFrame, _GridFrame, _GameOver;
-        sf::Text _text;
+        sf::Text _score;
         sf::Clock _clock;
 
         Tetromino block, next_block;
