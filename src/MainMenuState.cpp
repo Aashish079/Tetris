@@ -67,13 +67,13 @@ namespace tetris
             sf::Vector2i mousePosition2 = sf::Mouse::getPosition(_data->window);
             sf::FloatRect spriteBounds2 = _sprite_for_HighScoreButton.getGlobalBounds();
 
-            if (spriteBounds.contains(mousePosition2.x, mousePosition2.y))
+            if (spriteBounds2.contains(mousePosition2.x, mousePosition2.y))
             {
-                if (!isHovered)
+                if (!isHovered2)
                 {
                     // Mouse entered the sprite
 
-                    isHovered = true;
+                    isHovered2 = true;
 
                     // Update sprite appearance when hovered
                     // For example, you can change the sprite's color
@@ -82,12 +82,40 @@ namespace tetris
             }
             else
             {
-                if (isHovered)
+                if (isHovered2)
                 {
                     // Mouse left the sprite
-                    isHovered = false;
+                    isHovered2 = false;
                     // Reset sprite appearance
                     _sprite_for_HighScoreButton.setColor(sf::Color::White);
+                }
+            }
+
+            // Hover effect for Exit button
+            sf::Vector2i mousePosition3 = sf::Mouse::getPosition(_data->window);
+            sf::FloatRect spriteBounds3 = _sprite_for_ExitButton.getGlobalBounds();
+
+            if (spriteBounds3.contains(mousePosition3.x, mousePosition3.y))
+            {
+                if (!isHovered3)
+                {
+                    // Mouse entered the sprite
+
+                    isHovered3 = true;
+
+                    // Update sprite appearance when hovered
+                    // For example, you can change the sprite's color
+                    _sprite_for_ExitButton.setColor(sf::Color(100, 200, 200));
+                }
+            }
+            else
+            {
+                if (isHovered3)
+                {
+                    // Mouse left the sprite
+                    isHovered3 = false;
+                    // Reset sprite appearance
+                    _sprite_for_ExitButton.setColor(sf::Color::White);
                 }
             }
 
