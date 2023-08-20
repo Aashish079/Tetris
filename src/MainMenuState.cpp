@@ -118,20 +118,28 @@ namespace tetris
                     _sprite_for_ExitButton.setColor(sf::Color::White);
                 }
             }
-
+                // Go to Gameplay State
             if (_data->input.IsSpriteClicked(_sprite_for_PlayButton, sf::Mouse::Left, _data->window))
             {
                 std::cout << "go to GamePlay" << std::endl;
                 _data->machine.addState(StateRef(new GamePlayState(_data)), true);
                 //                _data->machine.addState(StateRef(new MainMenuState(_data)), true);
             }
-
+                // Go to Highscore State
             if (_data->input.IsSpriteClicked(_sprite_for_HighScoreButton, sf::Mouse::Left, _data->window))
             {
                 std::cout << "go to Highscore" << std::endl;
                 _data->machine.addState(StateRef(new HighScoreState(_data)), true);
                 //                _data->machine.addState(StateRef(new MainMenuState(_data)), true);
             }
+
+            // EXIT FROM THE GAME
+            if (_data->input.IsSpriteClicked(_sprite_for_ExitButton, sf::Mouse::Left, _data->window))
+            {
+                std::cout << "Exit" << std::endl;
+                _data->window.close();
+            }
+
 
         }
     }
