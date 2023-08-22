@@ -6,6 +6,7 @@
 #include "globals.hpp"
 #include "tetromino.hpp"
 #include "random"
+#include "FileManager.hpp"
 
 namespace tetris
 {
@@ -29,5 +30,7 @@ namespace tetris
         std::string playerName;
         int score_value;
         sf::RectangleShape inputBox;
+
+        FileManager fileManager;
     };
 }

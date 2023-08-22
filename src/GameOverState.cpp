@@ -2,7 +2,9 @@
 #include <sstream>
 #include "GameOverState.hpp"
 #include "HighScoreState.hpp"
+#include "MainMenuState.hpp"
 #include "GamePlayState.hpp"
+#include <iostream>
 namespace tetris
 {
     GameOverState::GameOverState(tetris::GameDataRef data, int score) : _data(data), score_value(score) {}
@@ -58,24 +60,28 @@ namespace tetris
             // Input Field for Player Name
             if (evt.type == sf::Event::TextEntered && typing)
             {
-                if (evt.text.unicode == 13)
+                if (evt.text.unicode == 32)
                 { // Enter key
                     typing = false;
                     // Clear the input field
-                    _input_text.setString("");
+                    fileManager.storeScore(playerName, score_value);
+                    _data->machine.addState(StateRef(new MainMenuState(_data)), true);
                 }
-                else if (evt.text.unicode == 8 && !playerName.empty())
+                if (evt.text.unicode == 8 && !playerName.empty())
                 { // Backspace
                     playerName.pop_back();
                 }
-                else if (evt.text.unicode >= 32 && evt.text.unicode <= 126)
+                if (evt.text.unicode >= 32 && evt.text.unicode <= 126)
                 {
                     playerName += static_cast<char>(evt.text.unicode);
                 }
                 _input_text.setString(playerName);
+
             }
         }
     }
+
+
     void GameOverState::update(float dt)
     {
         // if (_clock.getElapsedTime().asSeconds() > 4)

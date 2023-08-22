@@ -8,6 +8,7 @@
 #include "random"
 
 
+
 namespace tetris
 {
     class GamePlayState: public State
@@ -39,6 +40,8 @@ namespace tetris
         int score_value = 0;
         bool is_game_over = false;
         float time, accumulated_time =0,delay=0.5;
+
+        
     };
 
 }

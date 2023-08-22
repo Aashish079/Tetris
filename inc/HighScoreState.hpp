@@ -19,6 +19,7 @@ namespace tetris
         void handleInput();
         void update(float dt);
         void render(float dt);
+        void storeScore();
 
     private:
         long int highScore;
