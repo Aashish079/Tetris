@@ -30,11 +30,11 @@ namespace tetris
 
     void IntroState::update(float dt)
     {
-        if (_clock.getElapsedTime().asSeconds() > 2)
+        if (_clock.getElapsedTime().asSeconds() > 0.1)
         {
             // Switch To Main Menu
-            _data->machine.addState(StateRef(new MainMenuState(_data)), true);
-            //             _data->machine.addState(StateRef(new GamePlayState(_data)), true);
+//            _data->machine.addState(StateRef(new MainMenuState(_data)), true);
+                         _data->machine.addState(StateRef(new GamePlayState(_data)), true);
         }
     }
     void IntroState::render(float dt)

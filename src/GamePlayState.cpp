@@ -31,6 +31,7 @@ namespace tetris
         _data->assets.loadFont("Bebas", "../rec/Bebas-Regular.ttf");
         _score.setFont(_data->assets.getFont("Bebas"));
 
+
     }
 
     void GamePlayState::handleInput()
@@ -206,8 +207,35 @@ namespace tetris
             }
 
 
+<<<<<<< HEAD
             block(_data, next_shape_id);
             next_block(_data, next_shape_id = generate_shape_id());
+=======
+             }
+             if (evt.type == sf::Event::KeyPressed)
+             {
+                 if (evt.key.code == sf::Keyboard::Left)
+                 {
+                    x_postion_of_tetromino--;
+                 }
+                 if (evt.key.code == sf::Keyboard::Right)
+                 {
+                     x_postion_of_tetromino++;
+                 }
+                 if (evt.key.code == sf::Keyboard::Up)
+                 {
+                     y_postion_of_tetromino--;
+                 }
+                 if (evt.key.code == sf::Keyboard::Down)
+                 {
+                     y_postion_of_tetromino++;
+                 }
+             }
+         }
+     }
+    void  GamePlayState::update(float dt)
+     {
+>>>>>>> main
 
             // Load Gameover state
             if(is_game_over){
@@ -215,6 +243,7 @@ namespace tetris
             }
         }
 
+<<<<<<< HEAD
         // timer
 
         time = _clock.getElapsedTime().asSeconds();
@@ -302,6 +331,29 @@ namespace tetris
 
         _data->window.draw(_NextTetrominoFrame);
         _data->window.draw(_GridFrame);
+=======
+        sf::RectangleShape cell (sf::Vector2f(30,30));
+        cell.setFillColor(sf::Color(0,100,100,100));
+         _data->window.clear(sf::Color::Black);
+         for(int i=0;i<10;i++)
+         {
+             for(int j=0;j<20;j++)
+             {
+                 cell.setPosition(((i+17) * 31) , ((j+1) * 31) );
+
+                 _data->window.draw(cell);
+
+             }
+         }
+
+         for(int k =0 ; k<4;k++)
+         {
+             _sprite_for_ColorBox.setTextureRect(sf::IntRect (30 *(0),0,30,30));
+             _sprite_for_ColorBox.setPosition(((x_postion_of_tetromino) * 31)+(ShapeMatrix[0][k]%2)*31,((y_postion_of_tetromino) * 31)+(ShapeMatrix[0][k]/2)*31 );
+             _data->window.draw(_sprite_for_ColorBox);
+         }
+
+>>>>>>> main
 
         _data->window.display();
 
