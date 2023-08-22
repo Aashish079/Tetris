@@ -27,9 +27,8 @@ namespace tetris
          GameDataRef _data;
 
         sf::Sprite _sprite;
-        sf::Text _text, _label,_input_text;
+        sf::Text _text;
         sf::Clock _clock;
-        bool typing = true;
         std::string playerName;
 
         sf::RectangleShape inputBox;

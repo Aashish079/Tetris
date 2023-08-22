@@ -9,30 +9,15 @@ namespace tetris
 
     void HighScoreState::init()
     {
-        _data->assets.loadTexture("IntroPage", "../rec/IntroPage.jpg");
+        _data->assets.loadTexture("HighScore", "../rec/HighScores.png");
 
-        _sprite.setTexture(_data->assets.getTexture("IntroPage"));
+        _sprite.setTexture(_data->assets.getTexture("HighScore"));
+
+        _sprite.setPosition(361, 50);
 
         _data->assets.loadFont("Bebas", "../rec/Bebas-Regular.ttf");
-        _label.setFont(_data->assets.getFont("Bebas"));
-        _input_text.setFont(_data->assets.getFont("Bebas"));
+        _text.setFont(_data->assets.getFont("Bebas"));
 
-        _label.setString("Enter your name:");
-        _label.setCharacterSize(24);
-        _label.setPosition(478, 100);
-
-        inputBox.setPosition(478, 186);
-        inputBox.setFillColor(sf::Color::White);
-        inputBox.setOutlineThickness(2);
-        inputBox.setOutlineColor(sf::Color::Black);
-
-        _input_text.setCharacterSize(24);
-        _input_text.setFillColor(sf::Color::Black);
-        _input_text.setPosition(478, 186);
-
-        inputBox.setSize(sf::Vector2f(300, 40));
-
-        
     }
 
     void HighScoreState::handleInput()
@@ -44,42 +29,26 @@ namespace tetris
             {
                 _data->window.close();
             }
-            // Input Field for Player Name
-             if (evt.type == sf::Event::TextEntered && typing) {
-                if (evt.text.unicode == 13) { // Enter key
-                    typing = false;
-                    // Clear the input field
-                    _input_text.setString("");
-                } else if (evt.text.unicode == 8 && !playerName.empty()) { // Backspace
-                    playerName.pop_back();
-                } else if (evt.text.unicode >= 32 && evt.text.unicode <= 126) {
-                    playerName += static_cast<char>(evt.text.unicode);
-                }
-                _input_text.setString(playerName);
+            // Go to main menu is escape is pressed
+            if (evt.text.unicode == 8)
+            { // Backspace key
+                _data->machine.addState(StateRef(new MainMenuState(_data)), true);
+                // Clear the input field
             }
         }
-        
+
+    }
+    void HighScoreState::update(float dt){
+
     }
 
-    void HighScoreState::update(float dt)
-    {
-        // if (_clock.getElapsedTime().asSeconds() > 2)
-        // {
-        //     // Switch To Main Menu
-        //     _data->machine.addState(StateRef(new MainMenuState(_data)), true);
-        //     //             _data->machine.addState(StateRef(new GamePlayState(_data)), true);
-        // }
+    void HighScoreState::storeScore(){
     }
-    void HighScoreState::render(float dt)
-    {
 
-        _data->window.clear(sf::Color::Red);
-        _data->window.draw(_sprite);
-        _data->window.draw(_label);
-        _data->window.draw(inputBox);
-        _data->window.draw(_input_text);
-        //         _data->window.draw(_text);
-
-        _data->window.display();
-    }
-}
+        void HighScoreState::render(float dt)
+        {
+            _data->window.clear(sf::Color::Black);
+            _data->window.draw(_sprite);
+            _data->window.display();
+        }
+} // namespace tetris
