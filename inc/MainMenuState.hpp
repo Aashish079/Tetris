@@ -30,10 +30,15 @@ namespace tetris
         sf::Text _text;
         sf::Clock _clock;
         bool isHovered = false;
+<<<<<<< HEAD
+        bool isHovered2 = false;
+        bool isHovered3 = false;
+=======
 
 
 
 
+>>>>>>> main
     };
 
 
