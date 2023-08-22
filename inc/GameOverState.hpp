@@ -7,13 +7,12 @@
 #include "tetromino.hpp"
 #include "random"
 
-
 namespace tetris
 {
-    class HighScoreState: public State
+    class GameOverState : public State
     {
     public:
-        HighScoreState(GameDataRef data);
+        GameOverState(GameDataRef data);
         void init();
 
         void handleInput();
@@ -21,9 +20,7 @@ namespace tetris
         void render(float dt);
 
     private:
-        long int highScore;
-        long int topTen[10];
-         GameDataRef _data;
+        GameDataRef _data;
 
         sf::Sprite _sprite;
         sf::Text _text, _label,_input_text;
@@ -33,5 +30,4 @@ namespace tetris
 
         sf::RectangleShape inputBox;
     };
-
 }

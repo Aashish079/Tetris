@@ -15,6 +15,7 @@ set(SOURCE_FILES
         src/tetromino.cpp
         src/tetromino.cpp
         src/HighScoreState.cpp
+        src/GameOverState.cpp
 
 )
 add_executable(sfml_test ${SOURCE_FILES})

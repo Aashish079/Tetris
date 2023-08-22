@@ -1,4 +1,5 @@
 #include "GamePlayState.hpp"
+#include "GameOverState.hpp"
 #include <iostream>
 
 namespace tetris
@@ -207,6 +208,11 @@ namespace tetris
 
             block(_data, next_shape_id);
             next_block(_data, next_shape_id = generate_shape_id());
+
+            // Load Gameover state
+            if(is_game_over){
+                _data->machine.addState(StateRef(new GameOverState(_data)), true);
+            }
         }
 
         // timer
@@ -293,13 +299,6 @@ namespace tetris
         _score.setPosition(X_NEXT_BLOCK - CELL_SIZE, Y_NEXT_BLOCK + CELL_SIZE*6 );
         _data->window.draw(_score);
 
-        // Game Over Display
-        if(is_game_over){
-            std::cout<<"Game Over"<<std::endl;
-            _GameOver.setPosition(500,500);
-            _data->window.draw(_GameOver);
-            _data->window.display();
-        }
 
         _data->window.draw(_NextTetrominoFrame);
         _data->window.draw(_GridFrame);
