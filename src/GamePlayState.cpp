@@ -211,7 +211,7 @@ namespace tetris
 
             // Load Gameover state
             if(is_game_over){
-                _data->machine.addState(StateRef(new GameOverState(_data)), true);
+                _data->machine.addState(StateRef(new GameOverState(_data, score_value)), true);
             }
         }
 

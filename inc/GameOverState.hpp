@@ -1,6 +1,6 @@
 #pragma once
 
-#include<SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "state.hpp"
 #include "game.hpp"
 #include "globals.hpp"
@@ -12,7 +12,7 @@ namespace tetris
     class GameOverState : public State
     {
     public:
-        GameOverState(GameDataRef data);
+        GameOverState(GameDataRef data, int score);
         void init();
 
         void handleInput();
@@ -23,11 +23,11 @@ namespace tetris
         GameDataRef _data;
 
         sf::Sprite _sprite;
-        sf::Text _text, _label,_input_text;
+        sf::Text _text, _label, _input_text, _score;
         sf::Clock _clock;
         bool typing = true;
         std::string playerName;
-
+        int score_value;
         sf::RectangleShape inputBox;
     };
 }

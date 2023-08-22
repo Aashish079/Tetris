@@ -5,32 +5,43 @@
 #include "GamePlayState.hpp"
 namespace tetris
 {
-    GameOverState::GameOverState(tetris::GameDataRef data) : _data(data) {}
+    GameOverState::GameOverState(tetris::GameDataRef data, int score) : _data(data), score_value(score) {}
 
     void GameOverState::init()
     {
+        // Show GameOver logo
         _data->assets.loadTexture("GameOver", "../rec/GAMEOVER.png");
-
         _sprite.setTexture(_data->assets.getTexture("GameOver"));
 
         _sprite.setPosition(361, 50);
 
+        // Show User's Score
         _data->assets.loadFont("Bebas", "../rec/Bebas-Regular.ttf");
+        _score.setFont(_data->assets.getFont("Bebas"));
+        _score.setString("Score: " + std::to_string(score_value));
+        _score.setCharacterSize(30);
+        _score.setFillColor(sf::Color::White);
+        _score.setPosition(561,200);
+
+
+
+
+        // Ask User information
         _label.setFont(_data->assets.getFont("Bebas"));
         _input_text.setFont(_data->assets.getFont("Bebas"));
 
         _label.setString("Enter your name:");
         _label.setCharacterSize(24);
-        _label.setPosition(461, 200);
+        _label.setPosition(561, 400);
 
-        inputBox.setPosition(461, 286);
+        inputBox.setPosition(561, 486);
         inputBox.setFillColor(sf::Color::White);
         inputBox.setOutlineThickness(2);
         inputBox.setOutlineColor(sf::Color::Black);
 
         _input_text.setCharacterSize(24);
         _input_text.setFillColor(sf::Color::Black);
-        _input_text.setPosition(461, 286);
+        _input_text.setPosition(561, 486);
 
         inputBox.setSize(sf::Vector2f(300, 40));
     }
@@ -81,6 +92,7 @@ namespace tetris
         _data->window.draw(_label);
         _data->window.draw(inputBox);
         _data->window.draw(_input_text);
+        _data->window.draw(_score);
         //         _data->window.draw(_text);
 
         _data->window.display();
