@@ -143,7 +143,7 @@ namespace tetris
                     if (grid[column][row] == 7)
                     {
                         is_a_row_filled = false;
-                        std::cout << "The row is not filled" << std::endl;
+//                        std::cout << "The row is not filled" << std::endl;
                         std::cout << column << " " << is_a_row_filled << std::endl;
                         break;
                     }
@@ -190,7 +190,7 @@ namespace tetris
                             for (int column = 0; column < 10; column++)
                             {
                                 grid[column][row] = grid[column][row - 1];
-                                std::cout << "clearing row" << std::endl;
+//                                std::cout << "clearing row" << std::endl;
                             }
                         }
                     }
@@ -199,7 +199,7 @@ namespace tetris
                         for (int column = 0; column < 10; column++)
                         {
                             grid[column][0] = 7;
-                            std::cout << "clearing 1st row" << std::endl;
+//                            std::cout << "clearing 1st row" << std::endl;
                         }
                     }
                 }

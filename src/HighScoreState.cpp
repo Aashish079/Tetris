@@ -1,7 +1,4 @@
-#include <sstream>
-#include "Intro_State.hpp"
-#include "MainMenuState.hpp"
-#include "GamePlayState.hpp"
+
 #include "HighScoreState.hpp"
 namespace tetris
 {
@@ -20,7 +17,9 @@ namespace tetris
         name.setFont(_data->assets.getFont("Bebas"));
         score.setFont(_data->assets.getFont("Bebas"));
         fileManager.getScoreFromFile();
-        playerScore = fileManager.getPlayerScore();
+        playerScore = fileManager.GetSortedScore();
+
+
     }
 
     void HighScoreState::handleInput()
@@ -44,38 +43,39 @@ namespace tetris
     {
     }
 
-    void HighScoreState::storeScore()
-    {
-    }
 
     void HighScoreState::render(float dt)
     {
-        // Get an iterator pointing to the first element in the map
-        std::map<std::string, int>::iterator it = playerScore.begin();
 
-        // Iterate through the map and print the elements
         int i = 0;
-        while (it != playerScore.end())
-        {
-            name.setString(it->first);
-            name.setFont(_data->assets.getFont("Bebas"));
-            name.setCharacterSize(24);
-            name.setPosition(561, 200 + i * 50);
+        _data->window.clear(sf::Color::Black);
 
-            score.setString(std::to_string(it->second));
+        for (const auto& player : playerScore)
+        {
+            name.setString(std::to_string(i+1) + ". "+player.first);
+            name.setFont(_data->assets.getFont("Bebas"));
+            name.setFillColor(sf::Color::White);
+            name.setCharacterSize(48);
+            name.setPosition(500, 150 + i * 50);
+
+            score.setString(std::to_string(  player.second));
             score.setFont(_data->assets.getFont("Bebas"));
-            score.setCharacterSize(24);
-            score.setPosition(861, 200 + i * 50);
+            score.setCharacterSize(48);
+            score.setPosition(800, 150 + i * 50);
 
             
-            // score.setString(it->second);
-            // std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
-            i++;
-            ++it;
-        }
-         _data->window.draw(name);
+             score.setString(std::to_string(player.second));
+//             std::cout << "Key1: " << player.first << ", Value1: " << player.second << std::endl;
+
+
+
+            _data->window.draw(name);
             _data->window.draw(score);
-        _data->window.clear(sf::Color::Black);
+            if(i==9 )
+                break;
+            i++;
+        }
+
         _data->window.draw(_sprite);
         _data->window.display();
     }

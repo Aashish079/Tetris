@@ -1,19 +1,15 @@
 #include "FileManager.hpp"
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <map>
-#include <algorithm>
+
 
 FileManager::FileManager()
 {
-    std::ifstream file("scores.txt");
+    std::ifstream file("../rec/scores.txt");
     if (file.is_open())
     {
     }
     else
     {
-        std::cout << "Unable to open file";
+        std::cout << "Unable to open file1";
     }
 }
 
@@ -36,7 +32,7 @@ void FileManager::storeScore(std::string playerName, int score)
 // Store top ten scores in map
 void FileManager::getScoreFromFile()
 {
-    std::ifstream file("scores.txt");
+    std::ifstream file("../rec/scores.txt");
     if (file.is_open())
     {
         std::string line;
@@ -52,6 +48,7 @@ void FileManager::getScoreFromFile()
             playerScore[name] = std::stoi(score); // Store name and score in map for sorting
         }
         file.close();
+
     }
     else
     {
@@ -72,7 +69,20 @@ std::map <std::string, int> FileManager::getPlayerScore(){
     return playerScore;
 }
 
-void FileManager::sortScore()
+std::vector<std::pair<std::string , int>> FileManager::GetSortedScore()
 {
+
+
+
+std::vector<std::pair<std::string , int>> SortedPlayerScore(playerScore.begin(),playerScore.end());
+std::sort(SortedPlayerScore.begin(),SortedPlayerScore.end(), FileManager::CompareScore);
+
+
+    return SortedPlayerScore;
+}
+bool FileManager::CompareScore(const std::pair<std::string, int> &playerscore1,
+                               const std::pair<std::string, int> &playerscore2) {
+
+        return playerscore1.second>playerscore2.second;
 
 }

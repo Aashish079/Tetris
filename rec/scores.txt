@@ -4,3 +4,8 @@ Prabhat 12500
 ad 100
 Albert 5800
 SHishir 26300
+anup 0
+anup 0
+DSB_sir 2000000
+LNR 1010
+JKM 2020

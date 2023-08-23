@@ -12,7 +12,7 @@ namespace tetris
     void GameOverState::init()
     {
         // Show GameOver logo
-        _data->assets.loadTexture("GameOver", "../rec/GAMEOVER.png");
+        _data->assets.loadTexture("GameOver", "../rec/GameOver.png");
         _sprite.setTexture(_data->assets.getTexture("GameOver"));
 
         _sprite.setPosition(361, 50);

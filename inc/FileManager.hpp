@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <vector>
+#include <algorithm>
 
 class FileManager
 {
@@ -17,7 +19,9 @@ public:
     void storeScore(std::string playerName, int score); // Stores score in file
     void getScoreFromFile(); // Gets top ten scores from file into map
     std::map <std::string, int> getPlayerScore(); // Returns map
-    void sortScore(); // Sorts scores in map
-    int topTenSize = 0;
+    std::vector<std::pair<std::string , int>> GetSortedScore(); // Sorts scores in map
+
+    static bool CompareScore(const std::pair<std::string, int> &playerscore1,const std::pair<std::string,int> &playerscore2 );
+
 
 };

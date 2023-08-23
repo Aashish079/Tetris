@@ -7,6 +7,9 @@
 #include "tetromino.hpp"
 #include "random"
 #include "FileManager.hpp"
+#include <sstream>
+#include "Intro_State.hpp"
+#include "MainMenuState.hpp"
 
 
 namespace tetris
@@ -20,14 +23,12 @@ namespace tetris
         void handleInput();
         void update(float dt);
         void render(float dt);
-        void storeScore();
 
     private:
-        long int highScore;
-        long int topTen[10];
+
          GameDataRef _data;
         FileManager fileManager;
-        std::map<std::string, int> playerScore;
+        std::vector<std::pair<std::string, int >> playerScore;
         sf::Sprite _sprite;
         sf::Text _text, name, score;
         sf::Clock _clock;
