@@ -17,7 +17,10 @@ namespace tetris
 
         _data->assets.loadFont("Bebas", "../rec/Bebas-Regular.ttf");
         _text.setFont(_data->assets.getFont("Bebas"));
-
+        name.setFont(_data->assets.getFont("Bebas"));
+        score.setFont(_data->assets.getFont("Bebas"));
+        fileManager.getScoreFromFile();
+        playerScore = fileManager.getPlayerScore();
     }
 
     void HighScoreState::handleInput()
@@ -36,19 +39,35 @@ namespace tetris
                 // Clear the input field
             }
         }
-
     }
-    void HighScoreState::update(float dt){
-
-    }
-
-    void HighScoreState::storeScore(){
+    void HighScoreState::update(float dt)
+    {
     }
 
-        void HighScoreState::render(float dt)
+    void HighScoreState::storeScore()
+    {
+    }
+
+    void HighScoreState::render(float dt)
+    {
+        // Get an iterator pointing to the first element in the map
+        std::map<std::string, int>::iterator it = playerScore.begin();
+
+        // Iterate through the map and print the elements
+        while (it != playerScore.end())
         {
-            _data->window.clear(sf::Color::Black);
-            _data->window.draw(_sprite);
-            _data->window.display();
+            name.setString(it->first);
+            name.setFont(_data->assets.getFont("Bebas"));
+            name.setCharacterSize(24);
+
+            // score.setString(it->second);
+            // std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
+            // ++it;
         }
+
+        _data->window.clear(sf::Color::Black);
+        _data->window.draw(_sprite);
+        _data->window.draw(name);
+        _data->window.display();
+    }
 } // namespace tetris
