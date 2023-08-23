@@ -54,20 +54,29 @@ namespace tetris
         std::map<std::string, int>::iterator it = playerScore.begin();
 
         // Iterate through the map and print the elements
+        int i = 0;
         while (it != playerScore.end())
         {
             name.setString(it->first);
             name.setFont(_data->assets.getFont("Bebas"));
             name.setCharacterSize(24);
+            name.setPosition(561, 200 + i * 50);
 
+            score.setString(std::to_string(it->second));
+            score.setFont(_data->assets.getFont("Bebas"));
+            score.setCharacterSize(24);
+            score.setPosition(861, 200 + i * 50);
+
+            
             // score.setString(it->second);
             // std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
-            // ++it;
+            i++;
+            ++it;
         }
-
+         _data->window.draw(name);
+            _data->window.draw(score);
         _data->window.clear(sf::Color::Black);
         _data->window.draw(_sprite);
-        _data->window.draw(name);
         _data->window.display();
     }
 } // namespace tetris

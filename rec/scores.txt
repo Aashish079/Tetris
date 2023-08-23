@@ -1,6 +1,5 @@
-Anup 1600
+Anup 1600 
 Apil 1300
-Aashish 5100
 Prabhat 12500
 ad 100
 Albert 5800

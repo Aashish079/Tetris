@@ -29,7 +29,7 @@ void FileManager::storeScore(std::string playerName, int score)
     {
         std::cout << "Error opening file" << std::endl;
     }
-    file << playerName << " " << score << std::endl;
+    file << playerName << " " << score<< std::endl;
     file.close();
 }
 
@@ -40,12 +40,16 @@ void FileManager::getScoreFromFile()
     if (file.is_open())
     {
         std::string line;
+
+        // It is reading Aashish 0 outof nowhere
         while (getline(file, line))
         {
-            std::string name = line.substr(0, line.find(" "));
-            std::string score = line.substr(line.find(" ") + 1, line.length());
+            std::cout<<line<<std::endl;
+            std::string name = line.substr(0, line.find(' '));
+            std::string score = line.substr(name.length()+1, line.length());
+            std::cout << "Name: " << name << ", Score: " << score << std::endl;
             
-            playerScore[name] = std::stoi(score); // Store name and score in map for sorting ||STOI converts string to int
+            playerScore[name] = std::stoi(score); // Store name and score in map for sorting
         }
         file.close();
     }
@@ -56,6 +60,15 @@ void FileManager::getScoreFromFile()
 }
 
 std::map <std::string, int> FileManager::getPlayerScore(){
+    // Get an iterator pointing to the first element in the map
+  std::map<std::string, int>::iterator it = playerScore.begin();
+ 
+  // Iterate through the map and print the elements
+  while (it != playerScore.end())
+  {
+    std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
+    ++it;
+  }
     return playerScore;
 }
 
