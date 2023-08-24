@@ -31,6 +31,10 @@ namespace tetris
         _data->assets.loadFont("Bebas", "../rec/Bebas-Regular.ttf");
         _score.setFont(_data->assets.getFont("Bebas"));
 
+
+        _data->assets.loadBuffer("ClearSound","../rec/ClearSound.wav");
+        _clear_sound.setBuffer(_data->assets.getBuffer("ClearSound"));
+
     }
 
     void GamePlayState::handleInput()
@@ -157,6 +161,7 @@ namespace tetris
                 // Clears and shifts the row
                 if (is_a_row_filled == true)
                 {
+                            _clear_sound.play();
                             float interval = 0.5;
                             float accumulated_time_anim = 0;
                             float time_anim = 0;

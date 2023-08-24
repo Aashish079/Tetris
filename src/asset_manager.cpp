@@ -30,4 +30,19 @@ namespace tetris
     {
         return _fonts.at(name);
     }
+
+    void AssetManager::loadBuffer(std::string name, std::string fileName)
+    {
+        sf::SoundBuffer buffer;
+        if (buffer.loadFromFile(fileName))
+        {
+            _buffers[name] = buffer;
+        }
+
+    }
+
+    sf::SoundBuffer& AssetManager::getBuffer(std::string name)
+    {
+        return _buffers.at(name);
+    }
 }
