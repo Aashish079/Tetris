@@ -34,6 +34,7 @@ namespace tetris
         sf::Sprite _sprite_for_ColorBox ,cell, _NextTetrominoFrame, _GridFrame, _GameOver;
         sf::Text _score;
         sf::Clock _clock;
+        sf::Sound _clear_sound;
 
         Tetromino block, next_block;
         int current_shape_id, next_shape_id;
