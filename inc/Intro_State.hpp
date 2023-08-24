@@ -24,7 +24,9 @@ namespace tetris
         sf::Sprite _sprite;
         sf::Text _text;
         sf::Clock _clock;
+        sf::Sound _intro_sound;
     };
+
 }
 
 #endif // SFML_TEST_INTRO_STATE_HPP

@@ -121,6 +121,7 @@ namespace tetris
     {
         if (is_inside_grid(0, 1))
         {
+
             move(0, 1);
         }
     }

@@ -35,6 +35,20 @@ namespace tetris
         _data->assets.loadBuffer("ClearSound","../rec/ClearSound.wav");
         _clear_sound.setBuffer(_data->assets.getBuffer("ClearSound"));
 
+        _data->assets.loadBuffer("MoveDownSound","../rec/MoveDownSound.wav");
+        _move_down_sound.setBuffer(_data->assets.getBuffer("MoveDownSound"));
+
+        _data->assets.loadBuffer("MoveUpSound","../rec/MoveUpSound.wav");
+        _move_up_sound.setBuffer(_data->assets.getBuffer("MoveUpSound"));
+
+        _data->assets.loadBuffer("MoveLeftRightSound","../rec/MoveDownSound.wav");
+        _move_left_right_sound.setBuffer(_data->assets.getBuffer("MoveLeftRightSound"));
+
+        _data->assets.loadBuffer("GameOverSound","../rec/GameOverSound.wav");
+        _game_over_sound.setBuffer(_data->assets.getBuffer("GameOverSound"));
+
+
+
     }
 
     void GamePlayState::handleInput()
@@ -66,6 +80,7 @@ namespace tetris
                         }
                         if (!is_touching_other)
                         {
+                            _move_left_right_sound.play();
                             block.move_left();
                         }
                     }
@@ -87,12 +102,15 @@ namespace tetris
                         }
                         if (!is_touching_other)
                         {
+                            _move_left_right_sound.play();
+
                             block.move_right();
                         }
                     }
                 }
                 if (evt.key.code == sf::Keyboard::Up)
                 {
+                    _move_up_sound.play();
                     rotate();
                 }
                 if (evt.key.code == sf::Keyboard::Down)
@@ -112,7 +130,9 @@ namespace tetris
                         }
                         if (!is_touching_other)
                         {
+                            _move_down_sound.play();
                             block.move_down();
+
                         }
                     }
                 }
@@ -216,6 +236,7 @@ namespace tetris
 
             // Load Gameover state
             if(is_game_over){
+                _game_over_sound.play();
                 _data->machine.addState(StateRef(new GameOverState(_data, score_value)), true);
             }
         }
@@ -245,6 +266,7 @@ namespace tetris
                 }
                 if (!is_touching_other)
                 {
+                    _move_down_sound.play();
                     block.move_down();
                 }
             }

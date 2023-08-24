@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include <SFML/Audio.hpp>
 #include "globals.hpp"
 #include "game.hpp"
 
@@ -42,6 +43,7 @@ namespace tetris
         Cell cells[4];
         Tetromino(){}
         Tetromino(GameDataRef& data, int shape_id);
+
 
         void operator () (GameDataRef& data, int shape_id);
 

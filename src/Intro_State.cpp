@@ -14,6 +14,10 @@ namespace tetris
         _data->assets.loadTexture("IntroPage", "../rec/IntroPage.jpg");
 
         _sprite.setTexture(_data->assets.getTexture("IntroPage"));
+
+        _data->assets.loadBuffer("IntroSound","../rec/IntroSound.wav");
+        _intro_sound.setBuffer(_data->assets.getBuffer("IntroSound"));
+        _intro_sound.play();
     }
 
     void IntroState::handleInput()
