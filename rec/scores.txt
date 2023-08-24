@@ -9,7 +9,3 @@ anup 0
 DSB_sir 2000000
 LNR 1010
 JKM 2020
-game 400
-adddd 800
-dg 2200
-sfdfs 1100
