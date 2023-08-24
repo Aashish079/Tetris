@@ -50,7 +50,7 @@ namespace tetris
         int i = 0;
         _data->window.clear(sf::Color::Black);
 
-        for (const auto& player : playerScore)
+        for (const std::pair<std::string, int>& player : playerScore)
         {
             name.setString(std::to_string(i+1) + ". "+player.first);
             name.setFont(_data->assets.getFont("Bebas"));

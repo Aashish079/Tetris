@@ -9,3 +9,5 @@ anup 0
 DSB_sir 2000000
 LNR 1010
 JKM 2020
+Aashish 18400
+Aashish 3500
