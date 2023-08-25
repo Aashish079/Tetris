@@ -11,7 +11,7 @@ $ cd Tetris/
 $ make
 $ ./Tetris
 ```
-Using CLion IDE from JetBrains
+<h2>Using CLion IDE from JetBrains</h2>
 Open this folder from CLion IDE and click on play button on the top bar of CLion IDE and the IDE does the work itself.
 
 
