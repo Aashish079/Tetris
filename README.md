@@ -14,7 +14,7 @@ $ ./Tetris
 <h2>Using CLion IDE from JetBrains</h2>
 Open this folder from CLion IDE and click on play button on the top bar of CLion IDE and the IDE does the work itself.
 
-
+<h2>About the game.</h2>
 <p>It is a classic Tetris Game with some tweaks of our own. It basically has 5 states(i.e Windows) and they are shown below:</p>
 <img width="1365" alt="IntroState" src="https://github.com/Aashish079/Tetris/assets/106550372/f8373ae8-3dad-4b0c-95a1-6f6462fe09a8">
 <p>Fig: IntroState</p>
