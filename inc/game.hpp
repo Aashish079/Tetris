@@ -1,5 +1,4 @@
-#ifndef GAME_HPP
-#define GAME_HPP
+#pragma once
 
 #include <memory>
 #include <string>
@@ -8,7 +7,6 @@
 #include "asset_manager.hpp"
 #include "InputManager.hpp"
 
-#define DEBUG
 
 namespace tetris
 {
@@ -19,9 +17,9 @@ namespace tetris
         AssetManager assets;
         InputManager input;
 
-#ifdef DEBUG
+
         int FPS, UPS;
-#endif
+
     };
 
     typedef std::shared_ptr<GameData> GameDataRef;
@@ -35,7 +33,7 @@ namespace tetris
         // Updates run at 30 per second.
         const float dt = 1.0f / 30.0f;
         sf::Clock _clock;
-#ifdef DEBUG
+
         sf::Clock _upsClock;
         sf::Clock _fpsClock;
         int _updates;
@@ -43,11 +41,11 @@ namespace tetris
 
         void calculateUpdatesPerSecond();
         void calculateFramesPerSecond();
-#endif
+
         GameDataRef _data = std::make_shared<GameData>();
 
         void run();
     };
 }
 
-#endif // GAME_HPP
+// GAME_HPP

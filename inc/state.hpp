@@ -1,5 +1,4 @@
-#ifndef STATE_HPP
-#define STATE_HPP
+#pragma once
 
 namespace tetris
 {
@@ -17,4 +16,4 @@ namespace tetris
     };
 }
 
-#endif // STATE_HPP
+// STATE_HPP

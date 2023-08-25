@@ -51,7 +51,6 @@ namespace tetris
         }
     }
 
-#ifdef DEBUG
     void Game::calculateUpdatesPerSecond()
     {
         _updates++;
@@ -64,9 +63,7 @@ namespace tetris
             _updates = 0;
         }
     }
-#endif
 
-#ifdef DEBUG
     void Game::calculateFramesPerSecond()
     {
         _frames++;
@@ -79,5 +76,4 @@ namespace tetris
             _frames = 0;
         }
     }
-#endif
 }

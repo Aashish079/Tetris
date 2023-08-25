@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.7)  24 AUG 2023 23:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.7)  25 AUG 2023 07:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,7 +489,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--1
 
  []
 
-[9]) (./sec/Results.tex [10]
+[9]
+<images/ClassDiagram.png, id=138, 1519.6775pt x 557.08125pt>
+File: images/ClassDiagram.png Graphic file (type png)
+<use images/ClassDiagram.png>
+Package pdftex.def Info: images/ClassDiagram.png  used on input line 23.
+(pdftex.def)             Requested size: 478.51723pt x 175.41351pt.
+
+Overfull \hbox (79.75185pt too wide) in paragraph at lines 23--24
+ [][] 
+ []
+
+<images/StateMachine.png, id=139, 529.98pt x 492.84125pt>
+File: images/StateMachine.png Graphic file (type png)
+<use images/StateMachine.png>
+Package pdftex.def Info: images/StateMachine.png  used on input line 30.
+(pdftex.def)             Requested size: 279.13454pt x 259.57274pt.
+[10 <./images/ClassDiagram.png>]
+<images/GamePlayBlockDiagram.jpg, id=147, 659.46375pt x 750.805pt>
+File: images/GamePlayBlockDiagram.jpg Graphic file (type jpg)
+<use images/GamePlayBlockDiagram.jpg>
+Package pdftex.def Info: images/GamePlayBlockDiagram.jpg  used on input line 36
+.
+(pdftex.def)             Requested size: 279.13454pt x 317.79906pt.
+) (./sec/Results.tex [11 <./images/StateMachine.png> <./images/GamePlayBlockDia
+gram.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
@@ -499,36 +523,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<images/IntroState.png, id=143, 1370.11874pt x 797.98125pt>
+<images/IntroState.png, id=155, 1370.11874pt x 797.98125pt>
 File: images/IntroState.png Graphic file (type png)
 <use images/IntroState.png>
 Package pdftex.def Info: images/IntroState.png  used on input line 11.
 (pdftex.def)             Requested size: 358.8864pt x 209.0166pt.
-<images/MainMenuState.png, id=144, 1370.11874pt x 797.98125pt>
+<images/MainMenuState.png, id=156, 1370.11874pt x 797.98125pt>
 File: images/MainMenuState.png Graphic file (type png)
 <use images/MainMenuState.png>
 Package pdftex.def Info: images/MainMenuState.png  used on input line 17.
 (pdftex.def)             Requested size: 358.8864pt x 209.0166pt.
-<images/GamePlayState.png, id=145, 1370.11874pt x 797.98125pt>
+<images/GamePlayState.png, id=157, 1370.11874pt x 797.98125pt>
 File: images/GamePlayState.png Graphic file (type png)
 <use images/GamePlayState.png>
 Package pdftex.def Info: images/GamePlayState.png  used on input line 23.
 (pdftex.def)             Requested size: 319.01352pt x 185.7966pt.
-<images/GameOverState.png, id=146, 1370.11874pt x 797.98125pt>
+<images/GameOverState.png, id=158, 1370.11874pt x 797.98125pt>
 File: images/GameOverState.png Graphic file (type png)
 <use images/GameOverState.png>
 Package pdftex.def Info: images/GameOverState.png  used on input line 28.
 (pdftex.def)             Requested size: 319.01352pt x 185.7966pt.
-[11 <./images/IntroState.png> <./images/MainMenuState.png>]
-<images/HighScoreState.png, id=155, 1370.11874pt x 797.98125pt>
+[12 <./images/IntroState.png> <./images/MainMenuState.png>]
+<images/HighScoreState.png, id=168, 1370.11874pt x 797.98125pt>
 File: images/HighScoreState.png Graphic file (type png)
 <use images/HighScoreState.png>
 Package pdftex.def Info: images/HighScoreState.png  used on input line 33.
 (pdftex.def)             Requested size: 319.01352pt x 185.7966pt.
 )
-(./sec/Problem Faced and Solutions.tex [12 <./images/GamePlayState.png> <./imag
+(./sec/Problem Faced and Solutions.tex [13 <./images/GamePlayState.png> <./imag
 es/GameOverState.png> <./images/HighScoreState.png>])
-(./sec/ Limitations and future enhancements.tex [13]
+(./sec/ Limitations and future enhancements.tex [14]
 Overfull \hbox (17.81473pt too wide) in paragraph at lines 2--2
 []\OT1/ptm/b/n/17.28 LIMITATIONS AND FU-TURE EN-HANCE-MENTS 
  []
@@ -548,30 +572,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) (./sec/ Conclusion and recommendations.tex [14]
+) (./sec/ Conclusion and recommendations.tex [15]
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-) (./sec/Refrences.tex [15]) [16] (./PROPOSAL.aux)
+) (./sec/Refrences.tex [16]) [17] (./PROPOSAL.aux)
 Package rerunfilecheck Info: File `PROPOSAL.out' has not changed.
 (rerunfilecheck)             Checksum: A85DEAE3ECE54CB958B70F2DF1D5F8BE;1752.
  ) 
 Here is how much of TeX's memory you used:
- 10516 strings out of 476025
- 174498 string characters out of 5790018
+ 10545 strings out of 476025
+ 175273 string characters out of 5790018
  1858388 words of memory out of 5000000
- 30734 multiletter control sequences out of 15000+600000
+ 30756 multiletter control sequences out of 15000+600000
  526196 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,77p,1246b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/lo
 cal/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texliv
 e/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PROPOSAL.pdf (17 pages, 374659 bytes).
+Output written on PROPOSAL.pdf (18 pages, 502226 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
- 65 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 241 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 

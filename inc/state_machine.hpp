@@ -1,5 +1,4 @@
-#ifndef STATE_MACHINE_HPP
-#define STATE_MACHINE_HPP
+#pragma once
 
 #include <memory>
 #include <stack>
@@ -32,4 +31,4 @@ namespace tetris
     };
 }
 
-#endif // STATE_MACHINE_HPP
+ // STATE_MACHINE_HPP
