@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.7)  24 AUG 2023 17:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.7)  24 AUG 2023 23:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,57 +453,125 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--26
+Underfull \hbox (badness 10000) in paragraph at lines 19--24
 
  []
 
 ) (./sec/Application.tex [5]) (./sec/Literature Survey.tex [6])
-(./sec/Existing System.tex [7]) (./sec/methodology.tex [8]
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+(./sec/Existing System.tex [7]
+<images/Tetrominos.png, id=125, 428.60126pt x 328.22626pt>
+File: images/Tetrominos.png Graphic file (type png)
+<use images/Tetrominos.png>
+Package pdftex.def Info: images/Tetrominos.png  used on input line 8.
+(pdftex.def)             Requested size: 358.8864pt x 274.84172pt.
+) (./sec/methodology.tex [8 <./images/Tetrominos.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-) (./sec/implementation.tex [9]) (./sec/Results.tex [10])
-(./sec/Problem Faced and Solutions.tex [11])
-(./sec/ Limitations and future enhancements.tex [12]
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+) (./sec/implementation.tex
+Underfull \hbox (badness 10000) in paragraph at lines 16--1
+
+ []
+
+[9]) (./sec/Results.tex [10]
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+<images/IntroState.png, id=143, 1370.11874pt x 797.98125pt>
+File: images/IntroState.png Graphic file (type png)
+<use images/IntroState.png>
+Package pdftex.def Info: images/IntroState.png  used on input line 11.
+(pdftex.def)             Requested size: 358.8864pt x 209.0166pt.
+<images/MainMenuState.png, id=144, 1370.11874pt x 797.98125pt>
+File: images/MainMenuState.png Graphic file (type png)
+<use images/MainMenuState.png>
+Package pdftex.def Info: images/MainMenuState.png  used on input line 17.
+(pdftex.def)             Requested size: 358.8864pt x 209.0166pt.
+<images/GamePlayState.png, id=145, 1370.11874pt x 797.98125pt>
+File: images/GamePlayState.png Graphic file (type png)
+<use images/GamePlayState.png>
+Package pdftex.def Info: images/GamePlayState.png  used on input line 23.
+(pdftex.def)             Requested size: 319.01352pt x 185.7966pt.
+<images/GameOverState.png, id=146, 1370.11874pt x 797.98125pt>
+File: images/GameOverState.png Graphic file (type png)
+<use images/GameOverState.png>
+Package pdftex.def Info: images/GameOverState.png  used on input line 28.
+(pdftex.def)             Requested size: 319.01352pt x 185.7966pt.
+[11 <./images/IntroState.png> <./images/MainMenuState.png>]
+<images/HighScoreState.png, id=155, 1370.11874pt x 797.98125pt>
+File: images/HighScoreState.png Graphic file (type png)
+<use images/HighScoreState.png>
+Package pdftex.def Info: images/HighScoreState.png  used on input line 33.
+(pdftex.def)             Requested size: 319.01352pt x 185.7966pt.
+)
+(./sec/Problem Faced and Solutions.tex [12 <./images/GamePlayState.png> <./imag
+es/GameOverState.png> <./images/HighScoreState.png>])
+(./sec/ Limitations and future enhancements.tex [13]
 Overfull \hbox (17.81473pt too wide) in paragraph at lines 2--2
 []\OT1/ptm/b/n/17.28 LIMITATIONS AND FU-TURE EN-HANCE-MENTS 
  []
 
-) (./sec/ Conclusion and recommendations.tex [13]) (./sec/Refrences.tex
-[14]) [15] (./PROPOSAL.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+) (./sec/ Conclusion and recommendations.tex [14]
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+) (./sec/Refrences.tex [15]) [16] (./PROPOSAL.aux)
 Package rerunfilecheck Info: File `PROPOSAL.out' has not changed.
 (rerunfilecheck)             Checksum: A85DEAE3ECE54CB958B70F2DF1D5F8BE;1752.
  ) 
 Here is how much of TeX's memory you used:
- 10439 strings out of 476025
- 172934 string characters out of 5790018
+ 10516 strings out of 476025
+ 174498 string characters out of 5790018
  1858388 words of memory out of 5000000
- 30686 multiletter control sequences out of 15000+600000
- 524512 words of font info for 49 fonts, out of 8000000 for 9000
+ 30734 multiletter control sequences out of 15000+600000
+ 526196 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,77p,780b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,77p,1246b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/lo
-cal/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on PROPOSAL.pdf (16 pages, 81004 bytes).
+cal/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on PROPOSAL.pdf (17 pages, 374659 bytes).
 PDF statistics:
- 184 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
